@@ -1,0 +1,90 @@
+.principal {
+  height: 80px;
+  background-color: rgba(242, 242, 242, 0.8) !important;
+  .logo-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #dedede;
+      width: 7rem;
+      height: 3.75rem;
+    }
+  }
+}
+
+.singUpButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .singUp {
+    background: #7ed9d9;
+    height: 41px;
+    width: 185px;
+    border-radius: 14px;
+    align-items: center;
+    span {
+      color: #f2f2f2;
+    }
+  }
+  .btnIconMessage {
+    background-color: white;
+    // background-color: #b64d34;
+    border-radius: 90px;
+    .IconExit {
+      color: #464f6d;
+      
+    }
+  }
+  .go-to-profile-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background: #4e5674;
+    width: 12rem;
+    height: 70%;
+    padding: 0.4rem;
+    border-radius: 14px;
+    align-items: center;
+    color: white;
+    label:hover {
+      cursor: pointer;
+    }
+    .user-info-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 5.675rem;
+      height: 2.75rem;
+      font-size: 0.8rem;
+      label:first-child {
+        font-size: 0.75rem;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    a {
+      color: #f2f2f2;
+    }
+  }
+
+  .four {
+    font-family: Open Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-left: 15px;
+  }
+
+  .menu {
+    background: #fcfbfbcc;
+    color: #4e5674;
+  }
+}

@@ -1,0 +1,22 @@
+#custom-divider {
+  display: flex;
+  flex-direction: row;
+  padding: 0 3.25rem 0 3.25rem;
+  align-items: center;
+  min-height: 4rem;
+  p {
+    margin-right: 1rem;
+    color: #9a9a9a;
+  }
+  .divider-hr {
+    width: 59rem;
+    height: 1px;
+    background-color: #9a9a9a;
+    margin-right: 1rem;
+  }
+  .divider-after {
+    width: 2px;
+    height: 1px;
+    background-color: #9a9a9a;
+  }
+}

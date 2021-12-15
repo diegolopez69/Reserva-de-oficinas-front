@@ -1,13 +1,88 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.box {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.border-radius {
+  border-radius: 0.95rem;
+}
+
+.desktop-heading-1 {
+  font-weight: 800;
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+.desktop-heading-2 {
+  font-weight: bold;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+}
+
+.desktop-heading-3 {
+  font-weight: normal;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+.desktop-heading-4 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.p-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+p {
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.background-primary {
+  background-color: #f2f2f2;
+}
+
+.background-secondary {
+  background-color: #27334a;
+}
+
+.background-helper {
+  background-color: #fbfbfb;
+}
+
+.secondary-00 {
+  background-color: #464f6d;
+}
+.secondary-10 {
+  background-color: #464f6d;
+}
+.secondary-20 {
+  background-color: #445ca6;
+}
+.secondary-30 {
+  background-color: #7ed9d9;
 }
