@@ -6,7 +6,7 @@ import "./index.scss";
 export const Home = () => {
   return (
       <div id="home">        
-        <Navbar/>
+        {/* <Navbar/> */}
         <CircleMiddle />
         <CardList />
       </div>
