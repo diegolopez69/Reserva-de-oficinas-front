@@ -1,11 +1,27 @@
-import React from "react";
-
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 import Grid from '@material-ui/core/Grid';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import "./index.scss";
 
 
+
 export const Availability = () => {
+
+    useEffect(() => {
+      async function fetchData() {
+        const { data } = await axios.get("https://pokeapi.co/api/v2/pokemon/ditto")
+        console.log('respuesta ', data);
+  
+      }
+      fetchData();
+    }, [])
+  
+  
+  
+
+
+
   return (
     <div className='GeneralFloorTwo'>
       <div className='HeaderOfFloors'>
