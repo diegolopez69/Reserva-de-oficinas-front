@@ -6,7 +6,7 @@ import "./index.scss";
 
 export const Floor = () => {
   return (
-    <div className='GeneralFloors'>
+    <div className='GeneralFloors'> 
       <div className='HeaderOfFloors'>
         <ArrowBackIosIcon className='IconToGoBack' />
         <div className='SpaceForTheTitle'>
