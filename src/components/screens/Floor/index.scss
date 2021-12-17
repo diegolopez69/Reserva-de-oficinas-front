@@ -1,0 +1,22 @@
+.GeneralFloors{
+    .HeaderOfFloors{
+        background-color: #006696;
+        display: flex;
+        .IconToGoBack{
+            color: white;            
+        }
+        .SpaceForTheTitle{
+            padding-left: 560px;
+            .HeaderTextOfScreenFloor{
+                color: white;
+            }
+        }
+        
+    }
+    .BtnOfFloors{        
+        .BtnOfEachFloor{
+            background-color: #939597;
+            width: 1500px;            
+        }
+    }
+}

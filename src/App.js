@@ -1,37 +1,21 @@
-import React, {useEffect, useContext} from "react";
-
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-import { LoginGoogle } from "./components/atoms/";
-import {
-  SignInSide,
-  Register,
-  AgendaSummary,
-  History,
-  ProfesionalRegister,
-  TimeTable,
-  ResumeBooking,
-} from "./components/organisms";
 import {
   Home,
-  SearchResultsScreen,
-  ServiceDetailScreen,
-  MyProfile,
-  MyServices,
-  FaqsScreen,
-  Categories,
-  HistoryScreen,
-  MissionVision,
-  AboutUs,
+  Floor,
+  FloorTwo
 } from "./components/screens";
 import "./App.css";
 
-function App() {  
+function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
+          <Route path="/floor" component={Floor} />
+          <Route path="/floorTwo" component={FloorTwo} />
           <Route path="/" component={Home} />
+
         </Switch>
       </Router>
     </div>

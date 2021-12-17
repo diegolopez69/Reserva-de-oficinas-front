@@ -1,8 +1,22 @@
-#home {
-  // background-color: #e5e5e5;
-  background-color: white;
-  .search-section-container {
-    height: 30rem;
-    margin-bottom: 3rem;
+.MainScreenHome{
+  background-color: #3b83bd;
+  height: 800px;
+  justify-content: center;
+  .TitleOfTheMainScreen{
+    background-color: #006696;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    .TextOfTheTitleOnMainScreen{
+      color: white;
+    }
+  }
+  .GeneralCircleOfMainScreen{
+    width: 470px;
+    height: 470px;
+    background-color: white;
+    border-radius: 400px;
   }
 }
+
+
+
