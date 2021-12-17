@@ -1,0 +1,40 @@
+#slider {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding: 3rem 3rem 0rem 3rem;
+  margin: 3.25rem;
+  color: white;
+  .slides-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    height: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+  path {
+    fill: white;
+  }
+  .slider-controls-container {
+    display: flex;
+    height: 3rem;
+    box-sizing: content-box;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .slider-controls-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50%;
+    width: 10rem;
+  }
+  .slider-controls-buttons > svg {
+    width: 45%;
+    height: auto;
+  }
+}

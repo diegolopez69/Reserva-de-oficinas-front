@@ -1,2 +1,2 @@
 export * from "./navbar";
-export * from "./circle-middle";
+export * from "./slider";

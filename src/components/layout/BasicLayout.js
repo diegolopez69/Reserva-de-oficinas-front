@@ -6,6 +6,6 @@ export const BasicLayout = (props) => (
   <Fragment>
     <Navbar />
     {props.children}
-    <Footer />
+    
   </Fragment>
 );

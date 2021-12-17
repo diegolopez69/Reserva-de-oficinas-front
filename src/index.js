@@ -4,13 +4,13 @@ import "animate.css";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { UserProvider } from "./context";
+// import { UserProvider } from "./context";
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserProvider>
+    {/* <UserProvider> */}
       <App />
-    </UserProvider>
+    {/* </UserProvider> */}
   </React.StrictMode>,
   document.getElementById("root")
 );

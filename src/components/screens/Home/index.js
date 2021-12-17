@@ -1,14 +1,18 @@
 import React from "react";
-import { CircleMiddle, Navbar } from "../../organisms";
+import { Divider } from "../../atoms";
+import { Slider, Navbar } from "../../organisms";
 import { CardList } from "../../molecules";
 import "./index.scss";
 
+
 export const Home = () => {
   return (
-      <div id="home">        
-        {/* <Navbar/> */}
-        <CircleMiddle />
+      <div>
+        <Divider label="Noticias" />
+        <Slider />
+        <Divider label="Destacados" />
         <CardList />
       </div>
+    
   );
 };
