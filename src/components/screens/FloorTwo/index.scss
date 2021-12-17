@@ -1,0 +1,29 @@
+.GeneralFloorTwo{
+    .HeaderOfFloors{
+        background-color: #006696;
+        display: flex;
+        .IconToGoBack{
+            color: white;
+            margin-top: 20px;
+            
+        }
+        .SpaceForTheTitleOfFloorTwo{
+            color: white;
+            padding-left: 640px;
+        }
+    }
+
+    .GeneralOfBtnOnFloorTwo{
+        display: flex;
+        justify-content: center;
+        .EachBtwOnFloorTwo{
+            background-color: #939597;
+            width: 200px;
+            height: 200px;
+            margin-left: 70px;
+            margin-right: 70px;
+            margin-top: 50px;
+        }
+    }
+    
+}
