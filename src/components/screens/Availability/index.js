@@ -10,8 +10,7 @@ export const Availability = () => {
     async function fetchData() {
       const { data } = await axios.get("http://172.20.10.3:3000/links/1/Fri&Dec&17&2021/Fri&Dec&17&2021&24:00")
       if (data.disponibilidad[0] != null) {
-        let stateOfBooking = 1;
-        await stateFunction();
+        let stateOfBooking = 1;        
         console.log('respuesta ', data.disponibilidad[0]);
         console.log('primero ', stateOfBooking); 
       }
