@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   Home,
   Floor,
-  FloorTwo
+  FloorTwo,
+  Availability
 } from "./components/screens";
 import "./App.css";
 
@@ -12,10 +13,10 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/floor" component={Floor} />
-          <Route path="/floorTwo" component={FloorTwo} />
-          <Route path="/" component={Home} />
-
+          <Route path="/floor" component={ Floor } />
+          <Route path="/floorTwo" component={ FloorTwo }/>
+          <Route path="/floorTwoClass" component={ Availability }/>
+          <Route path="/" component={ Home } />
         </Switch>
       </Router>
     </div>
