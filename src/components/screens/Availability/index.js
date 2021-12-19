@@ -7,16 +7,13 @@ import "./index.scss";
 export const Availability = () => {
   const [stateOfBooking, setStateOfBooking] = useState(0)
   async function fetchData() {
-    const { min, hour, dayName,  dayNumber, month, year } = Time()
+    const { min, hour, dayName, dayNumber, month, year } = Time()
     let min2 = 0;
 
-    if( min <= 59){
+    if (min <= 59) {
       min2 = min + 1;
     }
-
     const { data } = await axios.get(`http://172.20.10.3:3000/links/1/${dayName}&${month}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${month}&${dayNumber}&${year}&${hour}:${min2}`)
-
-
     // const { data } = await axios.get("http://172.20.10.3:3000/links/1/Fri&Dec&17&2021&10:00/Fri&Dec&17&2021&24:00")
     //console.log(data.disponibilidad[0])
     if (data.disponibilidad[0] != null) {
@@ -26,20 +23,18 @@ export const Availability = () => {
     }
   }
   useEffect(() => {
+    // setStateOfBooking(1)
     const timer = setInterval(() => {
-       fetchData();
+      // fetchData();
       console.log("Se esta ejecutando");
     }, 1800000);        //1800000 = 30 mins
-    // fetchData();
+    fetchData();
   }, [])
 
   function Time() {
-
     let today = new Date();
-
-    let day = today.getDay();
-
     const d = new Date();
+    let day = today.getDay();
     let min = d.getMinutes();
     let hour = d.getHours();
     let dd = String(today.getDate()).padStart(2, '0');
@@ -69,30 +64,30 @@ export const Availability = () => {
 
     if (mm === 0) {
       mm = 'Jan'
-    }else if(mm = 1 ){
+    } else if (mm = 1) {
       mm = 'Feb'
-    }else if(mm = 2 ){
+    } else if (mm = 2) {
       mm = 'Mar'
-    }else if(mm = 3 ){
+    } else if (mm = 3) {
       mm = 'Apr'
-    }else if(mm = 4 ){
+    } else if (mm = 4) {
       mm = 'May'
-    }else if(mm = 5 ){
+    } else if (mm = 5) {
       mm = 'Jun'
-    }else if(mm = 6 ){
+    } else if (mm = 6) {
       mm = 'Jul'
-    }else if(mm = 7 ){
+    } else if (mm = 7) {
       mm = 'Aug'
-    }else if(mm = 8 ){
+    } else if (mm = 8) {
       mm = 'Sep'
-    }else if(mm = 9 ){
+    } else if (mm = 9) {
       mm = 'Oct'
-    }else if(mm = 10 ){
+    } else if (mm = 10) {
       mm = 'Nov'
-    }else if(mm = 11 ){
+    } else if (mm = 11) {
       mm = 'Dec'
     }
-    
+
     // console.log("min ", min);
     // console.log("hour ", hour);
     // console.log("day ", day);
@@ -104,14 +99,13 @@ export const Availability = () => {
     return {
       min: min,
       hour: hour,
-      dayName : dayName,
+      dayName: dayName,
       dayNumber: dd,
-      month: mm, 
+      month: mm,
       year: yyyy
     }
   }
 
-  
 
   return (
     <div className='GeneralFloorTwo'>
