@@ -24,7 +24,7 @@ export const Availability = () => {
     }
   }
   useEffect(() => {
-    // setStateOfBooking(1)
+    setStateOfBooking(1)
     const timer = setInterval(() => {
       // fetchData();
       console.log("Se esta ejecutando");
@@ -125,7 +125,7 @@ export const Availability = () => {
       </div>
 
       {/* {stateOfBooking === 1 ? <BookingRed /> : <BookingGreen />} */}
-      {stateOfBooking === 1 ? <BookingRed /> : <BookingGreen min={min} hour={hour} dayName={dayName} day={day} month={month} year={year}/>}
+      {stateOfBooking === 1 ? <BookingRed min={min} hour={hour} dayName={dayName} day={day} month={month} year={year} /> : <BookingGreen min={min} hour={hour} dayName={dayName} day={day} month={month} year={year}/>}
     </div>
   );
 };

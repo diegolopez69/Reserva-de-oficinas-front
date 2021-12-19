@@ -9,7 +9,7 @@ export const BookingRed = (props) => {
       <Grid container className='GeneralSecondPart'>
         <Grid item xs={7} className='GeneralStateOfTheRoomTwo'>
           <div className='GeneralOfFirstLine'>
-            <h3 className='TextOfFirstLine'>12:11 Viernes 17/12/2021</h3>
+          <h3 className='TextOfFirstLine'>{props.hour}:{props.min} {props.dayName} {props.day}/{props.month}/{props.year}</h3>
           </div>
           <div className='GeneralOfSecondLine'>
             <p className='TextOfSecondLine'>OCUPADA</p>
