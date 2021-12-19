@@ -26,14 +26,12 @@ export const Availability = () => {
     }
   }
   useEffect(() => {
-    setTimeout(() => {
-      
-      fetchData();
+    const timer = setInterval(() => {
+      // fetchData();
       console.log("Se esta ejecutando");
-    }, 1000);
-    
-
-    fetchData();
+      
+    }, 1800);
+    // fetchData();
   }, [])
 
   function Time() {
