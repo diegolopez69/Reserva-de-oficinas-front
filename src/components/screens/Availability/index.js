@@ -5,6 +5,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import "./index.scss";
 
 export const Availability = () => {
+  const { min, hour, dayName, day, dayNumber, month, year } = Time()
   const [stateOfBooking, setStateOfBooking] = useState(0)
   async function fetchData() {
     const { min, hour, dayName, dayNumber, month, year } = Time()
@@ -38,8 +39,9 @@ export const Availability = () => {
     let min = d.getMinutes();
     let hour = d.getHours();
     let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
     let yyyy = today.getFullYear();
+
 
     let dayName = '';
     if (day === 0) {
@@ -62,50 +64,54 @@ export const Availability = () => {
       dayName = 'Sat';
     }
 
-    if (mm === 0) {
-      mm = 'Jan'
-    } else if (mm = 1) {
-      mm = 'Feb'
-    } else if (mm = 2) {
-      mm = 'Mar'
-    } else if (mm = 3) {
-      mm = 'Apr'
-    } else if (mm = 4) {
-      mm = 'May'
-    } else if (mm = 5) {
-      mm = 'Jun'
-    } else if (mm = 6) {
-      mm = 'Jul'
-    } else if (mm = 7) {
-      mm = 'Aug'
-    } else if (mm = 8) {
-      mm = 'Sep'
-    } else if (mm = 9) {
-      mm = 'Oct'
-    } else if (mm = 10) {
-      mm = 'Nov'
-    } else if (mm = 11) {
-      mm = 'Dec'
+
+    let monthName = '';
+    if (mm === '1') {
+      monthName = 'Jan'
+    } else if (mm === '2') {
+      monthName = 'Feb'
+    } else if (mm === '3') {
+      monthName = 'Mar'
+    } else if (mm === '4') {
+      monthName = 'Apr'
+    } else if (mm === '5') {
+      monthName = 'May'
+    } else if (mm === '6') {
+      monthName = 'Jun'
+    } else if (mm === '7') {
+      monthName = 'Jul'
+    } else if (mm === '8') {
+      monthName = 'Aug'
+    } else if (mm === '9') {
+      monthName = 'Sep'
+    } else if (mm === '10') {
+      monthName = 'Oct'
+    } else if (mm === '11') {
+      monthName = 'Nov'
+    } else if (mm === '12') {
+      monthName = 'Dec'
     }
 
-    // console.log("min ", min);
-    // console.log("hour ", hour);
-    // console.log("day ", day);
-    // console.log("day ", dayName);
-    // console.log("mm ", mm);
-    // console.log("yy ", yyyy);
-    // console.log("day ", dd);
+    console.log("------------------------");
+    console.log("min ", min);
+    console.log("hour ", hour);
+    console.log("dayName ", dayName);
+    console.log("monthName ", monthName);
+    console.log("day ", dd);
+    console.log("month ", mm);
+    console.log("yy ", yyyy);
+
 
     return {
       min: min,
-      hour: hour,
+      hour: hour,      
       dayName: dayName,
       dayNumber: dd,
+      day: dd,
       month: mm,
       year: yyyy
     }
   }
-
 
   return (
     <div className='GeneralFloorTwo'>
@@ -118,7 +124,8 @@ export const Availability = () => {
         </div>
       </div>
 
-      {stateOfBooking === 1 ? <BookingRed /> : <BookingGreen />}
+      {/* {stateOfBooking === 1 ? <BookingRed /> : <BookingGreen />} */}
+      {stateOfBooking === 1 ? <BookingRed /> : <BookingGreen min={min} hour={hour} dayName={dayName} day={day} month={month} year={year}/>}
     </div>
   );
 };

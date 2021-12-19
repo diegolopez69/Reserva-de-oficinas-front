@@ -2,11 +2,11 @@ import React from "react";
 import Grid from '@material-ui/core/Grid';
 import "./index.scss";
 
-export const BookingRed = () => {
-  
+export const BookingRed = (props) => {
+
   return (
     <div className='GeneralFloorTwo'>
-      <Grid container className='GeneralSecondPart'>      
+      <Grid container className='GeneralSecondPart'>
         <Grid item xs={7} className='GeneralStateOfTheRoomTwo'>
           <div className='GeneralOfFirstLine'>
             <h3 className='TextOfFirstLine'>12:11 Viernes 17/12/2021</h3>
@@ -16,15 +16,19 @@ export const BookingRed = () => {
           </div>
         </Grid>
         <Grid item xs={5} className='GeneralBooking'>
-          <div className='TitleOfBooking'>          
+          <div className='TitleOfBooking'>
             <h3>Hoy</h3>
           </div>
           <div className='BookingPart'>
-            <p className='TextOfBooking'>¡Reserva ahora mismo!</p>
+            <p >Descripción :</p> <p>props.description</p> <br/>
+            <p >Nombre :</p> <p>props.name</p><br/>
+            <p >Hora de inicio :</p> <p>props.start</p><br/>
+            <p >Hora de finalización :</p> <p>props.end</p>
+            
           </div>
         </Grid>
       </Grid>
-    
+
 
     </div>
   );

@@ -2,14 +2,14 @@ import React from "react";
 import Grid from '@material-ui/core/Grid';
 import "./index.scss";
 
-export const BookingGreen = () => {
+export const BookingGreen = (props) => {
   
   return (
     <div className='GeneralFloorTwo'>
       <Grid container className='GeneralSecondPart'>      
         <Grid item xs={7} className='GeneralStateOfTheRoom'>
           <div className='GeneralOfFirstLine'>
-            <h3 className='TextOfFirstLine'>12:11 Viernes 17/12/2021</h3>
+            <h3 className='TextOfFirstLine'>{props.hour}:{props.min} {props.dayName} {props.day}/{props.month}/{props.year}</h3>
           </div>
           <div className='GeneralOfSecondLine'>
             <p className='TextOfSecondLine'>LIBRE</p>
