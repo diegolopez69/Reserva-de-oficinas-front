@@ -27,10 +27,9 @@ export const Availability = () => {
   }
   useEffect(() => {
     const timer = setInterval(() => {
-      // fetchData();
+       fetchData();
       console.log("Se esta ejecutando");
-      
-    }, 1800);
+    }, 1800000);        //1800000 = 30 mins
     // fetchData();
   }, [])
 
