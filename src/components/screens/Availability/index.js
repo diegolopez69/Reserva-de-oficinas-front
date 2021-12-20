@@ -10,20 +10,19 @@ export const Availability = () => {
   async function fetchData() {
     // const { min, hour, dayName, dayNumber, monthName, year } = Time()
     let min2 = 0;
-
     if (min <= 59) {
       min2 = min + 1;
     }
-
-
-    const prueba = `localhost:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`;
-    console.log(prueba);
-    const { data } = await axios.get(`localhost:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
-    // const { data } = await axios.get(`http://172.20.10.3:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
+    
+    
+    const { data } = await axios.get(`http://172.20.10.3:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
     // const { data } = await axios.get("http://172.20.10.3:3000/links/1/Fri&Dec&17&2021&10:00/Fri&Dec&17&2021&24:00")
     //console.log(data.disponibilidad[0])
+    // console.log('la URL ', url);
+    // console.log('---> ', data.disponibilidad[0]);
     if (data.disponibilidad[0] != null) {
       setStateOfBooking(1)
+      console.log('lo que viene ', data.disponibilidad[0]);
     } else {
       setStateOfBooking(0)
     }
@@ -31,9 +30,9 @@ export const Availability = () => {
   useEffect(() => {
     
     const timer = setInterval(() => {
-      fetchData(); 
+      fetchData();
       console.log("Se esta ejecutando");
-    }, 1800000);        //1800000 = 30 mins
+    }, 3000);        //1800000 = 30 mins
     fetchData();
   }, [])
 
