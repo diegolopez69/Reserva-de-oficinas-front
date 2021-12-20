@@ -14,15 +14,12 @@ export const Availability = () => {
       min2 = min + 1;
     }
     
-    
-    const { data } = await axios.get(`http://172.20.10.3:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
+                                      
+    const { data } = await axios.get(`localhost:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
     // const { data } = await axios.get("http://172.20.10.3:3000/links/1/Fri&Dec&17&2021&10:00/Fri&Dec&17&2021&24:00")
-    //console.log(data.disponibilidad[0])
-    // console.log('la URL ', url);
-    // console.log('---> ', data.disponibilidad[0]);
+    console.log('---> ', data.disponibilidad[0]);
     if (data.disponibilidad[0] != null) {
       setStateOfBooking(1)
-      console.log('lo que viene ', data.disponibilidad[0]);
     } else {
       setStateOfBooking(0)
     }
@@ -31,7 +28,7 @@ export const Availability = () => {
     
     const timer = setInterval(() => {
       fetchData();
-      console.log("Se esta ejecutando");
+      console.log("Paso el timer");
     }, 3000);        //1800000 = 30 mins
     fetchData();
   }, [])
@@ -97,13 +94,13 @@ export const Availability = () => {
     }
 
     console.log("------------------------");
-    console.log("min ", min);
-    console.log("hour ", hour);
-    console.log("dayName ", dayName);
-    console.log("monthName ", monthName);
-    console.log("day ", dd);
-    console.log("month ", mm);
-    console.log("yy ", yyyy);
+    // console.log("min ", min);
+    // console.log("hour ", hour);
+    // console.log("dayName ", dayName);
+    // console.log("monthName ", monthName);
+    // console.log("day ", dd);
+    // console.log("month ", mm);
+    // console.log("yy ", yyyy);
 
 
     return {
