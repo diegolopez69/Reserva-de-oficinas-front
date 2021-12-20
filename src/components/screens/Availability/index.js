@@ -26,7 +26,7 @@ export const Availability = () => {
   useEffect(() => {
     // setStateOfBooking(1)
     const timer = setInterval(() => {
-      // fetchData();
+      // fetchData(); 
       console.log("Se esta ejecutando");
     }, 1800000);        //1800000 = 30 mins
     fetchData();
