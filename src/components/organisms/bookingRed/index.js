@@ -20,10 +20,13 @@ export const BookingRed = (props) => {
             <h3>Hoy</h3>
           </div>
           <div className='BookingPart'>
-            <p >Descripción :</p> <p>props.description</p> <br/>
+            {/* <p >Descripción :</p> <p>props.description</p> <br/>
             <p >Nombre :</p> <p>props.name</p><br/>
             <p >Hora de inicio :</p> <p>props.start</p><br/>
-            <p >Hora de finalización :</p> <p>props.end</p>
+            <p >Hora de finalización :</p> <p>props.end</p> */}
+            <p>
+              Lo sentimos, en este momento la sala de reuniones esta siendo utilizada, vuelve a intentarlo en media hora.
+            </p>
             
           </div>
         </Grid>
