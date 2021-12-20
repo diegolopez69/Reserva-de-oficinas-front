@@ -1,8 +1,9 @@
 import React from "react";
 import Button from '@material-ui/core/Button';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { Link } from "react-router-dom";
 import "./index.scss";
- 
+
 
 export const FloorTwo = () => {
   return (
@@ -17,9 +18,12 @@ export const FloorTwo = () => {
       </div>
 
       <div className='GeneralOfBtnOnFloorTwo'>
-        <Button className='EachBtwOnFloorTwo'>
-          2.1
-        </Button>
+        <Link to="/floorTwoClass">
+          <Button className='EachBtwOnFloorTwo'>
+            2.1
+          </Button>
+        </Link>
+
         <Button className='EachBtwOnFloorTwo'>
           2.2
         </Button>
