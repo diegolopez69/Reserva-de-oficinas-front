@@ -5,16 +5,21 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import "./index.scss";
 
 export const Availability = () => {
-  const { min, hour, dayName, day, dayNumber, month, year } = Time()
+  const { min, hour, dayName, day, dayNumber, monthName, month, year } = Time()
   const [stateOfBooking, setStateOfBooking] = useState(0)
   async function fetchData() {
-    const { min, hour, dayName, dayNumber, monthName, year } = Time()
+    // const { min, hour, dayName, dayNumber, monthName, year } = Time()
     let min2 = 0;
 
     if (min <= 59) {
       min2 = min + 1;
     }
-    const { data } = await axios.get(`http://172.20.10.3:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
+
+
+    const prueba = `localhost:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`;
+    console.log(prueba);
+    const { data } = await axios.get(`localhost:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
+    // const { data } = await axios.get(`http://172.20.10.3:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
     // const { data } = await axios.get("http://172.20.10.3:3000/links/1/Fri&Dec&17&2021&10:00/Fri&Dec&17&2021&24:00")
     //console.log(data.disponibilidad[0])
     if (data.disponibilidad[0] != null) {
@@ -24,9 +29,9 @@ export const Availability = () => {
     }
   }
   useEffect(() => {
-    // setStateOfBooking(1)
+    
     const timer = setInterval(() => {
-      // fetchData(); 
+      fetchData(); 
       console.log("Se esta ejecutando");
     }, 1800000);        //1800000 = 30 mins
     fetchData();
