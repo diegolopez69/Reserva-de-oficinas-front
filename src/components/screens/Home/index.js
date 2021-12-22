@@ -11,10 +11,12 @@ export const Home = () => {
       <div className='TitleOfTheMainScreen'>
         <h2 className='TextOfTheTitleOnMainScreen'>Sistema de reservas de aulas.</h2>
       </div>
+
+
       <div className='GeneralCircleOfMainScreen'>
-        <h1>Logo</h1>
+        <h1 className="LogoOnMainScreen">Logo</h1>
         <Link to="/floor">
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" className="BtnEntrarMainScreen">
             Entrar
           </Button>
         </Link>

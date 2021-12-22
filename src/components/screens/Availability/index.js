@@ -14,7 +14,7 @@ export const Availability = () => {
       min2 = min + 1;
     }
     
-                                      
+    
     const { data } = await axios.get(`localhost:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
     // const { data } = await axios.get("http://172.20.10.3:3000/links/1/Fri&Dec&17&2021&10:00/Fri&Dec&17&2021&24:00")
     console.log('---> ', data.disponibilidad[0]);
