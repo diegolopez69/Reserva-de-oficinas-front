@@ -9,7 +9,11 @@ export const FloorTwo = () => {
   return (
     <div className='GeneralFloorTwo'>
       <div className='HeaderOfFloors'>
-        <ArrowBackIosIcon className='IconToGoBack' />
+        <Link to="/Floor">
+          <Button className='BtnToGoBack'>
+            <ArrowBackIosIcon className='IconToGoBack' />
+          </Button>
+        </Link>
         <div className='SpaceForTheTitleOfFloorTwo'>
           <h1 className='HeaderTextOfScreenFloor'>
             Planta 2

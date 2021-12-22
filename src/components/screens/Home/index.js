@@ -20,9 +20,6 @@ export const Home = () => {
             Entrar
           </Button>
         </Link>
-
-
-
       </div>
     </div>
   );

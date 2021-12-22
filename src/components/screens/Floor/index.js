@@ -1,7 +1,7 @@
 import React from "react";
 import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import {Link } from "react-router-dom";
 import "./index.scss";
 
 
@@ -9,7 +9,11 @@ export const Floor = () => {
   return (
     <div className='GeneralFloors'>
       <div className='HeaderOfFloors'>
-        <ArrowBackIosIcon className='IconToGoBack' />
+        <Link to="/">
+          <Button className='BtnToGoBack'>
+            <ArrowBackIosIcon className='IconToGoBack' />
+          </Button>
+        </Link>
         <div className='SpaceForTheTitle'>
           <h1 className='HeaderTextOfScreenFloor'>
             Selecciona una planta

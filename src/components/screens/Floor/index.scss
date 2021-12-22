@@ -1,24 +1,27 @@
-.GeneralFloors{
-    .HeaderOfFloors{
+.GeneralFloors {
+    .HeaderOfFloors {
         background-color: #006696;
         display: flex;
-        .IconToGoBack{
-            color: white;            
-        }
-        .SpaceForTheTitle{
-            // text-align: center;
-            // justify-content: center;
-            margin: auto;
-            .HeaderTextOfScreenFloor{
+        .BtnToGoBack {
+            
+            .IconToGoBack {
                 color: white;
             }
         }
-        
+
+        .SpaceForTheTitle {
+            // text-align: center;
+            // justify-content: center;
+            margin: auto;
+            .HeaderTextOfScreenFloor {
+                color: white;
+            }
+        }
     }
-    .BtnOfFloors{        
-        .BtnOfEachFloor{
+    .BtnOfFloors {
+        .BtnOfEachFloor {
             background-color: #939597;
-            width: 1440px;            
+            width: 1440px;
         }
     }
 }

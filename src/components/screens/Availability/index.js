@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom";
 import { BookingGreen, BookingRed } from "../../organisms";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import "./index.scss";
@@ -13,8 +15,8 @@ export const Availability = () => {
     if (min <= 59) {
       min2 = min + 1;
     }
-    
-    
+
+
     const { data } = await axios.get(`localhost:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
     // const { data } = await axios.get("http://172.20.10.3:3000/links/1/Fri&Dec&17&2021&10:00/Fri&Dec&17&2021&24:00")
     console.log('---> ', data.disponibilidad[0]);
@@ -25,7 +27,7 @@ export const Availability = () => {
     }
   }
   useEffect(() => {
-    
+
     const timer = setInterval(() => {
       fetchData();
       console.log("Paso el timer");
@@ -105,7 +107,7 @@ export const Availability = () => {
 
     return {
       min: min,
-      hour: hour,      
+      hour: hour,
       dayName: dayName,
       monthName: monthName,
       dayNumber: dd,
@@ -118,7 +120,11 @@ export const Availability = () => {
   return (
     <div className='GeneralFloorTwo'>
       <div className='HeaderOfFloors'>
-        <ArrowBackIosIcon className='IconToGoBack' />
+        <Link to="/floorTwo">
+          <Button className='BtnToGoBack'>
+            <ArrowBackIosIcon className='IconToGoBack' />
+          </Button>
+        </Link>
         <div className='SpaceForTheTitleOfFloorTwo'>
           <h1 className='HeaderTextOfScreenFloor'>
             Planta 2 - Aula 2.1
@@ -127,7 +133,7 @@ export const Availability = () => {
       </div>
 
       {/* {stateOfBooking === 1 ? <BookingRed /> : <BookingGreen />} */}
-      {stateOfBooking === 1 ? <BookingRed min={min} hour={hour} dayName={dayName} day={day} month={month} year={year} /> : <BookingGreen min={min} hour={hour} dayName={dayName} day={day} month={month} year={year}/>}
+      {stateOfBooking === 1 ? <BookingRed min={min} hour={hour} dayName={dayName} day={day} month={month} year={year} /> : <BookingGreen min={min} hour={hour} dayName={dayName} day={day} month={month} year={year} />}
     </div>
   );
 };
