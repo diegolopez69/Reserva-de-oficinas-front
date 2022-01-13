@@ -7,17 +7,21 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import "./index.scss";
 
 export const Availability = () => {
-  const { min, hour, dayName, day, dayNumber, monthName, month, year } = Time()
+  const { min, min2, hour, dayName, day, dayNumber, monthName, month, year } = Time()
   const [stateOfBooking, setStateOfBooking] = useState(0)
   async function fetchData() {
     // const { min, hour, dayName, dayNumber, monthName, year } = Time()
-    let min2 = 0;
-    if (min <= 59) {
-      min2 = min + 1;
-    }
+    // let min2 = 0;
+    // if (min <= 59) {
+    //   min2 = min + 1;
+    // }
 
-
-    const { data } = await axios.get(`localhost:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
+    
+     
+    
+    const { data } = await axios.get(`http://172.20.10.3:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
+    
+    
     // const { data } = await axios.get("http://172.20.10.3:3000/links/1/Fri&Dec&17&2021&10:00/Fri&Dec&17&2021&24:00")
     console.log('---> ', data.disponibilidad[0]);
     if (data.disponibilidad[0] != null) {
@@ -30,7 +34,7 @@ export const Availability = () => {
 
     const timer = setInterval(() => {
       fetchData();
-      console.log("Paso el timer");
+      //console.log("Paso el timer");
     }, 3000);        //1800000 = 30 mins
     fetchData();
   }, [])
@@ -69,23 +73,23 @@ export const Availability = () => {
 
 
     let monthName = '';
-    if (mm === '1') {
+    if (mm === '01') {
       monthName = 'Jan'
-    } else if (mm === '2') {
+    } else if (mm === '02') {
       monthName = 'Feb'
-    } else if (mm === '3') {
+    } else if (mm === '03') {
       monthName = 'Mar'
-    } else if (mm === '4') {
+    } else if (mm === '04') {
       monthName = 'Apr'
-    } else if (mm === '5') {
+    } else if (mm === '05') {
       monthName = 'May'
-    } else if (mm === '6') {
+    } else if (mm === '06') {
       monthName = 'Jun'
-    } else if (mm === '7') {
+    } else if (mm === '07') {
       monthName = 'Jul'
-    } else if (mm === '8') {
+    } else if (mm === '08') {
       monthName = 'Aug'
-    } else if (mm === '9') {
+    } else if (mm === '09') {
       monthName = 'Sep'
     } else if (mm === '10') {
       monthName = 'Oct'
@@ -96,7 +100,7 @@ export const Availability = () => {
     }
 
     console.log("------------------------");
-    // console.log("min ", min);
+    console.log("min ", min);
     // console.log("hour ", hour);
     // console.log("dayName ", dayName);
     // console.log("monthName ", monthName);
@@ -104,9 +108,15 @@ export const Availability = () => {
     // console.log("month ", mm);
     // console.log("yy ", yyyy);
 
+    let min2 = 0;
+    min2 = min + 1; 
+    console.log("min2 ", min2);
+
+    
 
     return {
       min: min,
+      min2: min2,
       hour: hour,
       dayName: dayName,
       monthName: monthName,
