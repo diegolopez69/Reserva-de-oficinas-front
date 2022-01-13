@@ -10,20 +10,10 @@ export const Availability = () => {
   const { min, min2, hour, dayName, day, dayNumber, monthName, month, year } = Time()
   const [stateOfBooking, setStateOfBooking] = useState(0)
   async function fetchData() {
-    // const { min, hour, dayName, dayNumber, monthName, year } = Time()
-    // let min2 = 0;
-    // if (min <= 59) {
-    //   min2 = min + 1;
-    // }
-
-    
-     
-    
     const { data } = await axios.get(`http://172.20.10.3:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
     
     
     // const { data } = await axios.get("http://172.20.10.3:3000/links/1/Fri&Dec&17&2021&10:00/Fri&Dec&17&2021&24:00")
-    console.log('---> ', data.disponibilidad[0]);
     if (data.disponibilidad[0] != null) {
       setStateOfBooking(1)
     } else {
@@ -31,11 +21,10 @@ export const Availability = () => {
     }
   }
   useEffect(() => {
-
     const timer = setInterval(() => {
       fetchData();
       //console.log("Paso el timer");
-    }, 3000);        //1800000 = 30 mins
+    }, 5000);        //1800000 = 30 mins
     fetchData();
   }, [])
 
@@ -99,8 +88,9 @@ export const Availability = () => {
       monthName = 'Dec'
     }
 
-    console.log("------------------------");
-    console.log("min ", min);
+    // console.log("------------------------");
+    // console.log("min ", min);
+    // console.log("min2 ", min2);
     // console.log("hour ", hour);
     // console.log("dayName ", dayName);
     // console.log("monthName ", monthName);
@@ -109,10 +99,7 @@ export const Availability = () => {
     // console.log("yy ", yyyy);
 
     let min2 = 0;
-    min2 = min + 1; 
-    console.log("min2 ", min2);
-
-    
+    min2 = min + 1; //No es necesario validar el 60 porque pone 0, eso resuelve el error
 
     return {
       min: min,
@@ -121,7 +108,6 @@ export const Availability = () => {
       dayName: dayName,
       monthName: monthName,
       dayNumber: dd,
-      day: dd,
       month: mm,
       year: yyyy
     }
