@@ -16,7 +16,7 @@ export const Avatar = ({ width, height, src, ...restProps }) => {
       }
       {...restProps}
     />
-  );
+  ); 
 };
 
 Avatar.propsTypes = {

@@ -4,7 +4,8 @@ import {
   Home,
   Floor,
   FloorTwo,
-  Availability
+  Availability,
+  LoginMovil
 } from "./components/screens";
 import "./App.css";
 
@@ -15,7 +16,8 @@ function App() {
         <Switch>
           <Route path="/floor" component={ Floor } />
           <Route path="/floorTwo" component={ FloorTwo }/>
-          <Route path="/floorTwoClass" component={ Availability }/>
+          <Route path="/floorTwoClass" component={ Availability }/>          
+          <Route path="/login" component={ LoginMovil } />
           <Route path="/" component={ Home } />
         </Switch>
       </Router>
