@@ -31,7 +31,6 @@ export const BookingRed = (props) => {
             
             <br/>
             <QRCode value="google.com" />
-            
           </div>
         </Grid>
       </Grid>
