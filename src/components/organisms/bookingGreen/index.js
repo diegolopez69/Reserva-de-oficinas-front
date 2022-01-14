@@ -1,5 +1,6 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
+import QRCode from "react-qr-code";
 import "./index.scss";
 
 export const BookingGreen = (props) => {
@@ -21,6 +22,8 @@ export const BookingGreen = (props) => {
           </div>
           <div className='BookingPart'>
             <p className='TextOfBooking'>¡Reserva ahora mismo!</p>
+            <br/>
+            <QRCode value="google.com" />
           </div>
         </Grid>
       </Grid>
