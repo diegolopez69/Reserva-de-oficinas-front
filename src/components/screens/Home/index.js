@@ -6,7 +6,7 @@ import "./index.scss";
 
 export const Home = () => {
   return (
-    <div className='MainScreenHome'>
+    <div className='MainScreenHome'> 
       <br />
       <div className='TitleOfTheMainScreen'>
         <h2 className='TextOfTheTitleOnMainScreen'>Sistema de reservas de aulas.</h2>
