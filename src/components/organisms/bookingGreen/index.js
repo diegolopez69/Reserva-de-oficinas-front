@@ -23,7 +23,7 @@ export const BookingGreen = (props) => {
           <div className='BookingPart'>
             <p className='TextOfBooking'>¡Reserva ahora mismo!</p>
             <br/>
-            <QRCode value="google.com" />
+            <QRCode value="http://localhost:3001/login" />
           </div>
         </Grid>
       </Grid>
