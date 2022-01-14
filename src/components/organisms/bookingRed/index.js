@@ -1,5 +1,6 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
+import QRCode from "react-qr-code";
 import "./index.scss";
 
 export const BookingRed = (props) => {
@@ -27,6 +28,9 @@ export const BookingRed = (props) => {
             <p>
               Lo sentimos, en este momento la sala de reuniones esta siendo utilizada, vuelve a intentarlo en media hora.
             </p>
+            
+            <br/>
+            <QRCode value="google.com" />
             
           </div>
         </Grid>
