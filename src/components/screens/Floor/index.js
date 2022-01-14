@@ -58,8 +58,6 @@ export const Floor = () => {
 
 
 
-
-
       </div>
 
     </div>
