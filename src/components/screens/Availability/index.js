@@ -112,7 +112,7 @@ export const Availability = () => {
       year: yyyy
     }
   }
-
+  //Test
   return (
     <div className='GeneralFloorTwo'>
       <div className='HeaderOfFloors'>
