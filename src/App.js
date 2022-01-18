@@ -6,7 +6,8 @@ import {
   FloorTwo,
   Availability,
   LoginMovil,
-  BookingMovil
+  BookingMovil,
+  BookingFinished
 } from "./components/screens";
 import "./App.css";
 
@@ -20,7 +21,9 @@ function App() {
           <Route path="/floorTwoClass" component={ Availability }/>          
           <Route path="/login" component={ LoginMovil } />
           <Route path="/bookingMovil" component={ BookingMovil } />
+          <Route path="/bookingFinished" component={ BookingFinished } />
           <Route path="/" component={ Home } />
+          
         </Switch>
       </Router>
     </div>

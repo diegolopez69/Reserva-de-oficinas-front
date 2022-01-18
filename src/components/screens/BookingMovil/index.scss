@@ -15,14 +15,23 @@
         }
     }
     .InsideForm{
-        background-color: gray;
+        
         margin-top: 30px;
         .LabelForm{
+            display: block;
             margin-bottom: 9px;
+            .BtnList{
+                width: 200px,
+                
+            }
         }
     }
     .BtnToBooking{
         margin-top: 30px;
+        .BtnReservar{
+            background-color: #006696;
+            color: white;
+        }
     }
  }
 }
