@@ -7,7 +7,8 @@ import {
   Availability,
   LoginMovil,
   BookingMovil,
-  BookingFinished
+  BookingFinished,
+  BookingHome
 } from "./components/screens";
 import "./App.css";
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/login" component={ LoginMovil } />
           <Route path="/bookingMovil" component={ BookingMovil } />
           <Route path="/bookingFinished" component={ BookingFinished } />
+          <Route path="/bookingHome" component={ BookingHome } />
           <Route path="/" component={ Home } />
           
         </Switch>
