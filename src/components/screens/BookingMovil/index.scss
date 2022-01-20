@@ -20,6 +20,9 @@
         .LabelForm{
             display: block;
             margin-bottom: 9px;
+            .FormControl{
+                min-width: 300px;
+            }
             .BtnList{
                 width: 200px,
                 

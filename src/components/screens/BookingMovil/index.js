@@ -1,24 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
+import { Select, MenuIcon, FormControl, InputLabel, MenuItem } from "@material-ui/core";
 import { useHistory, Link } from "react-router-dom";
 import "./index.scss";
 
 
+
 export const BookingMovil = () => {
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
+  const [value, setValue] = useState("");
+  const [valuee, setValuee] = useState("");
+
   const history = useHistory();
-  const handleClick = () => {
-    setOpen(!open);
-  };
-  const handleClick2 = () => {
-    setOpen(!open);
-  };
+
+  const handleChange = e => setValue(e.target.value);
+  const handleChangeOut = e => setValuee(e.target.value);
+
+
+
   return (
     <div className='MainScreenBookingMovile'>
       <div className="GeneralHeaderOfBookingMovil">
@@ -43,105 +42,54 @@ export const BookingMovil = () => {
           </form>
 
           <form className="LabelForm">
-            <label>Hora de entrada: </label>
 
 
-            <List className="BtnList">
-              <ListItem button onClick={handleClick}>
-                <ListItemText primary="Hora de inicio" />
-                {open ? <ExpandLess /> : <ExpandMore />}
-              </ListItem>
-              <Collapse in={open} >
-                <List disablePadding>
-                  <ListItem button>
-                    <ListItemText primary="8:00 - 9:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="9:00 - 10:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="10:00 - 11:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="11:00 - 12:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="12:00 - 13:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="13:00 - 14:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="14:00 - 15:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="15:00 - 16:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="16:00 - 17:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="17:00 - 18:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="19:00 - 20:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="20:00 - 21:00" />
-                  </ListItem>
-                </List>
-              </Collapse>
-            </List>
+            <FormControl className="FormControl">
+              <InputLabel>Hora de entrada: </InputLabel>
+              <Select onChange={handleChange}>
+                <MenuItem value={"07:00:00"}>07:00</MenuItem>
+                <MenuItem value={"08:00:00"}>08:00</MenuItem>
+                <MenuItem value={"09:00:00"}>09:00</MenuItem>
+                <MenuItem value={"10:00:00"}>10:00</MenuItem>
+                <MenuItem value={"11:00:00"}>11:00</MenuItem>
+                <MenuItem value={"12:00:00"}>12:00</MenuItem>
+                <MenuItem value={"13:00:00"}>13:00</MenuItem>
+                <MenuItem value={"14:00:00"}>14:00</MenuItem>
+                <MenuItem value={"15:00:00"}>15:00</MenuItem>
+                <MenuItem value={"16:00:00"}>16:00</MenuItem>
+                <MenuItem value={"17:00:00"}>17:00</MenuItem>
+                <MenuItem value={"18:00:00"}>18:00</MenuItem>
+                <MenuItem value={"19:00:00"}>19:00</MenuItem>
+                <MenuItem value={"20:00:00"}>20:00</MenuItem>
+                <MenuItem value={"21:00:00"}>21:00</MenuItem>
+              </Select>
+            </FormControl>
+
+            <p>Entrada: {value}</p>
           </form>
 
           <form className="LabelForm">
-            <label>Hora de salida: </label>
-            <List component="nav" className="BtnList">
-              <ListItem button onClick={handleClick2}>
-                <ListItemText primary="Hora de finalización" />
-                {open ? <ExpandLess /> : <ExpandMore />}
-              </ListItem>
-              <Collapse in={open} >
-                <List component="div" disablePadding>
-                  <ListItem button>
-                    <ListItemText primary="8:00 - 9:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="9:00 - 10:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="10:00 - 11:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="11:00 - 12:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="12:00 - 13:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="13:00 - 14:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="14:00 - 15:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="15:00 - 16:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="16:00 - 17:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="17:00 - 18:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="19:00 - 20:00" />
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="20:00 - 21:00" />
-                  </ListItem>
-                </List>
-              </Collapse>
-            </List>
+            <FormControl className="FormControl">
+              <InputLabel>Hora de salida: </InputLabel>
+              <Select onChange={handleChangeOut}>
+                <MenuItem value={"07:00:00"}>07:00</MenuItem>
+                <MenuItem value={"08:00:00"}>08:00</MenuItem>
+                <MenuItem value={"09:00:00"}>09:00</MenuItem>
+                <MenuItem value={"10:00:00"}>10:00</MenuItem>
+                <MenuItem value={"11:00:00"}>11:00</MenuItem>
+                <MenuItem value={"12:00:00"}>12:00</MenuItem>
+                <MenuItem value={"13:00:00"}>13:00</MenuItem>
+                <MenuItem value={"14:00:00"}>14:00</MenuItem>
+                <MenuItem value={"15:00:00"}>15:00</MenuItem>
+                <MenuItem value={"16:00:00"}>16:00</MenuItem>
+                <MenuItem value={"17:00:00"}>17:00</MenuItem>
+                <MenuItem value={"18:00:00"}>18:00</MenuItem>
+                <MenuItem value={"19:00:00"}>19:00</MenuItem>
+                <MenuItem value={"20:00:00"}>20:00</MenuItem>
+                <MenuItem value={"21:00:00"}>21:00</MenuItem>
+              </Select>
+            </FormControl>
+            <p>Salida: {valuee}</p>
           </form>
         </div>
 
