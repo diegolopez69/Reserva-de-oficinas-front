@@ -8,6 +8,8 @@ export const LoginMovil = () => {
   return (
     <div className="MainLoginMovil">
         <img src={logoUneat} className="ImgLogoMovil"></img>
+
+        
         <div className="GmailLoginMovil">
             <button className="ButtonLoginMovil">
               <img src={googleIcono} className="ImgButtonLoginMovil"/>  SIGN IN WITH GOOGLE
