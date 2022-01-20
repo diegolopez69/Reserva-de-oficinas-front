@@ -5,7 +5,6 @@ import {
   Floor,
   FloorTwo,
   Availability,
-  LoginMovil,
   BookingMovil,
   BookingFinished,
   BookingHome
@@ -20,10 +19,9 @@ function App() {
           <Route path="/floor" component={ Floor } />
           <Route path="/floorTwo" component={ FloorTwo }/>
           <Route path="/floorTwoClass" component={ Availability }/>          
-          <Route path="/login" component={ LoginMovil } />
           <Route path="/bookingMovil" component={ BookingMovil } />
           <Route path="/bookingFinished" component={ BookingFinished } />
-          <Route path="/bookingHome" component={ BookingHome } />
+          <Route path="/login" component={ BookingHome } />
           <Route path="/" component={ Home } />
           
         </Switch>
