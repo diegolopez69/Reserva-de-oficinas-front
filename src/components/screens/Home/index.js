@@ -1,6 +1,7 @@
 import React from "react";
 import Button from '@material-ui/core/Button';
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import logoUneat from "../../../resources/logoUEA.png";
 import "./index.scss";
 
 
@@ -14,7 +15,7 @@ export const Home = () => {
 
 
       <div className='GeneralCircleOfMainScreen'>
-        <h1 className="LogoOnMainScreen">Logo</h1>
+        <img src={logoUneat} className="ImgLogoMovil"></img>
         <Link to="/floor">
           <Button variant="contained" color="primary" className="BtnEntrarMainScreen">
             Entrar
