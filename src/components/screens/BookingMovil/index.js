@@ -6,12 +6,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import { useHistory, Link } from "react-router-dom";
 import "./index.scss";
 
 
 export const BookingMovil = () => {
   const [open, setOpen] = React.useState(true);
-
+  const history = useHistory();
   const handleClick = () => {
     setOpen(!open);
   };
@@ -139,7 +140,9 @@ export const BookingMovil = () => {
         </div>
 
         <div className="BtnToBooking">
-          <Button className="BtnReservar">Reservar</Button>
+          <Link to="/bookingFinished">
+            <Button className="BtnReservar">Reservar</Button>
+          </Link>
         </div>
       </div>
     </div>

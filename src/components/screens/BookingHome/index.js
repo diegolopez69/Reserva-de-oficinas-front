@@ -8,6 +8,7 @@ export const BookingHome = () => {
         <div className='MainScreenBookingFinished'>
             <img src={logoUneat} className="ImgLogoMovil"></img>
             <LoginGoogle/>
+            <br/>
         </div>
     );
 };
