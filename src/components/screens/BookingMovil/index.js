@@ -11,9 +11,12 @@ import "./index.scss";
 
 
 export const BookingMovil = () => {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const history = useHistory();
   const handleClick = () => {
+    setOpen(!open);
+  };
+  const handleClick2 = () => {
     setOpen(!open);
   };
   return (
@@ -41,13 +44,15 @@ export const BookingMovil = () => {
 
           <form className="LabelForm">
             <label>Hora de entrada: </label>
-            <List component="nav" className="BtnList">
+
+
+            <List className="BtnList">
               <ListItem button onClick={handleClick}>
-                <ListItemText primary="Horas" />
+                <ListItemText primary="Hora de inicio" />
                 {open ? <ExpandLess /> : <ExpandMore />}
               </ListItem>
               <Collapse in={open} >
-                <List component="div" disablePadding>
+                <List disablePadding>
                   <ListItem button>
                     <ListItemText primary="8:00 - 9:00" />
                   </ListItem>
@@ -88,11 +93,12 @@ export const BookingMovil = () => {
               </Collapse>
             </List>
           </form>
+
           <form className="LabelForm">
             <label>Hora de salida: </label>
             <List component="nav" className="BtnList">
-              <ListItem button onClick={handleClick}>
-                <ListItemText primary="Horas" />
+              <ListItem button onClick={handleClick2}>
+                <ListItemText primary="Hora de finalización" />
                 {open ? <ExpandLess /> : <ExpandMore />}
               </ListItem>
               <Collapse in={open} >
