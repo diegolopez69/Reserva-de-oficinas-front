@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState  } from "react";
 import Button from '@material-ui/core/Button';
-import { Select, MenuIcon, FormControl, InputLabel, MenuItem } from "@material-ui/core";
+import { Select, FormControl, InputLabel, MenuItem } from "@material-ui/core";
 import { useHistory, Link } from "react-router-dom";
 import "./index.scss";
 
@@ -10,12 +10,24 @@ export const BookingMovil = () => {
   // const [open, setOpen] = React.useState(false);
   const [value, setValue] = useState("");
   const [valuee, setValuee] = useState("");
-
-  const history = useHistory();
-
   const handleChange = e => setValue(e.target.value);
   const handleChangeOut = e => setValuee(e.target.value);
 
+
+    const PostMethod = () => {
+        // POST request using fetch inside useEffect React hook
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ start_time: value, end_time: valuee, room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" })
+        };
+        console.log(requestOptions.body);
+        fetch('localhost:3000/links/aceptar_reserva', requestOptions)
+            .then(response => response.json())
+            .then(data => setValue(data.id)).catch(exception => console.error(exception));
+
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }
 
 
   return (
@@ -95,7 +107,9 @@ export const BookingMovil = () => {
 
         <div className="BtnToBooking">
           <Link to="/bookingFinished">
-            <Button className="BtnReservar">Reservar</Button>
+            <Button className="BtnReservar" onClick={() => {
+              PostMethod();
+            }}>Reservar</Button>
           </Link>
         </div>
       </div>
