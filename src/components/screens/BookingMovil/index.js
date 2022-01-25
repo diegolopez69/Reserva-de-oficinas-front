@@ -21,6 +21,7 @@ export const BookingMovil = () => {
       headers: { 'Content-Type': 'application/json' },
       // body: JSON.stringify({ start_time: value, end_time: valuee, room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" })
       body: JSON.stringify({ "reserva": { start_time: newFormat, end_time: "2022-01-25T14:08:00", room_id: 1, create_by: "admin", name: "Titulo 1", description: "ejemplo1@alumnos.uneatlantico.es" } })
+      
     };
     console.log(requestOptions.body);
     fetch('http://172.20.10.5:3000/links/aceptar_reserva', requestOptions)
@@ -30,7 +31,8 @@ export const BookingMovil = () => {
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }
 
-  function Time() {
+  
+  function Time() { 
     let today = new Date();
     let day = today.getDay();
     let min = today.getMinutes();
@@ -50,9 +52,12 @@ export const BookingMovil = () => {
     // console.log("Day Number ", dd);
     // console.log("Month ", mm);
     // console.log("Year ", yyyy);
-    console.log(`${yyyy}-${mm}-${dd}T${hour}:0${min}:00`);
+    
+    console.log(`Prueba 1 ${yyyy}-${mm}-${dd}T${hour}:${min}:00`);
     console.log("newFormat ", newFormat);
 
+    
+    
     return {
       min: min,
       hour: hour,
@@ -92,21 +97,14 @@ export const BookingMovil = () => {
             <FormControl className="FormControl">
               <InputLabel>Hora de entrada: </InputLabel>
               <Select onChange={handleChange}>
-                <MenuItem value={"07:00:00"}>07:00</MenuItem>
-                <MenuItem value={"08:00:00"}>08:00</MenuItem>
-                <MenuItem value={"09:00:00"}>09:00</MenuItem>
-                <MenuItem value={"10:00:00"}>10:00</MenuItem>
-                <MenuItem value={"11:00:00"}>11:00</MenuItem>
-                <MenuItem value={"12:00:00"}>12:00</MenuItem>
-                <MenuItem value={"13:00:00"}>13:00</MenuItem>
-                <MenuItem value={"14:00:00"}>14:00</MenuItem>
-                <MenuItem value={"15:00:00"}>15:00</MenuItem>
-                <MenuItem value={"16:00:00"}>16:00</MenuItem>
-                <MenuItem value={"17:00:00"}>17:00</MenuItem>
-                <MenuItem value={"18:00:00"}>18:00</MenuItem>
-                <MenuItem value={"19:00:00"}>19:00</MenuItem>
-                <MenuItem value={"20:00:00"}>20:00</MenuItem>
-                <MenuItem value={"21:00:00"}>21:00</MenuItem>
+                <MenuItem value={1}>07:00</MenuItem>
+                <MenuItem value={"07:30"}>07:30</MenuItem>
+                <MenuItem value={"08:00"}>08:00</MenuItem>
+                <MenuItem value={"08:30"}>08:30</MenuItem>
+                <MenuItem value={"09:00"}>09:00</MenuItem>
+                <MenuItem value={"09:30"}>09:30</MenuItem>
+                <MenuItem value={"10:00"}>10:00</MenuItem>
+                <MenuItem value={"10:30"}>10:30</MenuItem>
               </Select>
             </FormControl>
 
@@ -138,6 +136,7 @@ export const BookingMovil = () => {
           </form>
         </div>
 
+        {console.log(`Prueba 2 ${year}-${month}-${dayNumber}T${value}:00`)}
         <div className="BtnToBooking">
           <Link to="/bookingFinished">
             <Button className="BtnReservar" onClick={() => {
