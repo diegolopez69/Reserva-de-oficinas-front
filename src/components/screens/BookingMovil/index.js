@@ -19,10 +19,11 @@ export const BookingMovil = () => {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ start_time: value, end_time: valuee, room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" })
+            // body: JSON.stringify({ start_time: value, end_time: valuee, room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" })
+          body: JSON.stringify({ "reserva": {start_time: "2022-01-25T10:00:00", end_time: "2022-01-25T11:00:00", room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" }})
         };
         console.log(requestOptions.body);
-        fetch('localhost:3000/links/aceptar_reserva', requestOptions)
+        fetch('http://172.20.10.5:3000/links/aceptar_reserva', requestOptions)
             .then(response => response.json())
             .then(data => setValue(data.id)).catch(exception => console.error(exception));
 
