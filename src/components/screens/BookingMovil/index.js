@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
 import { Select, FormControl, InputLabel, MenuItem } from "@material-ui/core";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./index.scss";
 
 export const BookingMovil = () => {
@@ -49,9 +49,7 @@ export const BookingMovil = () => {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      // body: JSON.stringify({ start_time: value, end_time: valuee, room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" })
       body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(hours[valuee]), room_id: 1, create_by: "admin", name: "Titulo 1", description: "ejemplo1@alumnos.uneatlantico.es" } })
-
     };
     console.log(requestOptions.body);
     fetch('http://172.20.10.5:3000/links/aceptar_reserva', requestOptions)
@@ -142,8 +140,6 @@ export const BookingMovil = () => {
   }
 
 
-
-
   return (
     <div className='MainScreenBookingMovile'>
       <div className="GeneralHeaderOfBookingMovil">
@@ -193,23 +189,9 @@ export const BookingMovil = () => {
                 }
               </Select>
             </FormControl>
-
-
             <p>Salida: {hours[valuee]}</p>
-
-
             {Time(hours[valuee])}
-
-
-
-
           </form>
-
-
-
-
-
-
         </div>
 
 
@@ -220,6 +202,7 @@ export const BookingMovil = () => {
             }}>Reservar</Button>
           </Link>
         </div>
+
       </div>
     </div>
   );
