@@ -138,7 +138,7 @@ export const BookingMovil = () => {
       minute = `00`
     }
 
-    return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}  `
+    return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
   }
 
 
