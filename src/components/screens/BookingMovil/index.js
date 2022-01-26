@@ -6,35 +6,35 @@ import "./index.scss";
 
 export const BookingMovil = () => {
   const hours = [
-    "07:00",
-    "07:30",
-    "08:00",
+    "07:00",  //0
+    "07:30",  //1
+    "08:00",  //2
     "08:30",
-    "09:00",
+    "09:00",  //4
     "09:30",
-    "10:00",
+    "10:00",  //6
     "10:30",
-    "11:00",
-    "11:30",
-    "12:00",
+    "11:00",  //8     -> entrada  + (entrada + 6) >= horas de finalización
+    "11:30",  //      -> entrada < horas de finalización >= (entrada + 6) 
+    "12:00",  //10
     "12:30",
-    "13:00",
+    "13:00",  //12
     "13:30",
-    "14:00",
+    "14:00",  //14
     "14:30",
-    "15:00",
+    "15:00",  //16
     "15:30",
-    "16:00",
+    "16:00",  //18
     "16:30",
-    "17:00",
+    "17:00",  //20
     "17:30",
-    "18:00",
+    "18:00",  //22
     "18:30",
-    "19:00",
+    "19:00",  //24
     "19:30",
-    "20:00",
+    "20:00",  //26
     "20:30",
-    "21:00",
+    "21:00",  //28
     "21:30",
   ]
 
@@ -43,6 +43,7 @@ export const BookingMovil = () => {
   const handleChange = e => setValue(e.target.value);
   const handleChangeOut = e => setValuee(e.target.value);
 
+  
 
   const PostMethod = () => {
     // POST request using fetch inside useEffect React hook
@@ -51,7 +52,6 @@ export const BookingMovil = () => {
       headers: { 'Content-Type': 'application/json' },
       // body: JSON.stringify({ start_time: value, end_time: valuee, room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" })
       body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(hours[valuee]), room_id: 1, create_by: "admin", name: "Titulo 1", description: "ejemplo1@alumnos.uneatlantico.es" } })
-
     };
     console.log(requestOptions.body);
     fetch('http://172.20.10.5:3000/links/aceptar_reserva', requestOptions)
@@ -141,6 +141,11 @@ export const BookingMovil = () => {
     return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
   }
 
+  //entrada < horas de finalización >= (entrada + 6) 
+
+  // hours.map((hour, index) => console.log("hour", index))
+
+
 
 
 
@@ -171,7 +176,7 @@ export const BookingMovil = () => {
 
             <FormControl className="FormControl">
               <InputLabel>Hora de entrada: </InputLabel>
-              <Select onChange={handleChange}>
+              <Select onChange={handleChange} >
                 {
                   hours.map((hour, index) => <MenuItem key={index} value={index}>{hour}</MenuItem>)
                 }
@@ -179,6 +184,7 @@ export const BookingMovil = () => {
             </FormControl>
             <p>Entrada: {hours[value]}</p>
             {Time(hours[value])}
+            {/* {visibleHours()} */}
 
           </form>
 
