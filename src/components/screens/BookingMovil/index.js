@@ -146,9 +146,6 @@ export const BookingMovil = () => {
   // hours.map((hour, index) => console.log("hour", index))
 
 
-
-
-
   return (
     <div className='MainScreenBookingMovile'>
       <div className="GeneralHeaderOfBookingMovil">
