@@ -20,7 +20,7 @@ export const LoginGoogle = () => {
   return (
     <div className='GeneralLoginGoogle'>
       <GoogleLogin
-        clientId="197802115801-b6f3k6chavnrppt0sdso253fv8deeacs.apps.googleusercontent.com"
+        clientId="863935160309-4k6lemam2m722m32e0vaeq4q5c5c7upk.apps.googleusercontent.com"
         buttonText="Iniciar sesión"
         onSuccess={respuestaGoogle}
         onFailure={respuestaGoogle}
