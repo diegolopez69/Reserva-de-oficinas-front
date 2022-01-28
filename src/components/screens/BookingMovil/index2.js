@@ -43,16 +43,15 @@ export const BookingMovil = () => {
   const handleChange = e => setValue(e.target.value);
   const handleChangeOut = e => setValuee(e.target.value);
 
-  
+
 
   const PostMethod = () => {
-    
     // POST request using fetch inside useEffect React hook
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       // body: JSON.stringify({ start_time: value, end_time: valuee, room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" })
-      body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: "admin", name: "Titulo 1", description: "ejemplo1@alumnos.uneatlantico.es" } })
+      body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(hours[valuee]), room_id: 1, create_by: "admin", name: "Titulo 1", description: "ejemplo1@alumnos.uneatlantico.es" } })
     };
     console.log(requestOptions.body);
     fetch('http://172.20.10.5:3000/links/aceptar_reserva', requestOptions)
@@ -141,7 +140,6 @@ export const BookingMovil = () => {
     let FullDate = `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
     console.log("FullDate", FullDate);
 
-    
     return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
   }
 
@@ -150,9 +148,9 @@ export const BookingMovil = () => {
 
 
   const filterFinishHours = () => {
-    if(!value && value !== 0) return [];
-    
-    return hours.filter((_, index) => index > + value && index <= value +6)
+    if (!value && value !== 0) return [];
+
+    return hours.filter((_, index) => index > +value && index <= value + 6)
   }
 
 
@@ -188,8 +186,8 @@ export const BookingMovil = () => {
                 }
               </Select>
             </FormControl>
-            <p>Entrada: {hours[value]}</p>
-            {Time(hours[value])}
+            {/* <p>Entrada: {hours[value]}</p>
+            {Time(hours[value])} */}
           </form>
 
 
@@ -203,8 +201,8 @@ export const BookingMovil = () => {
                 }
               </Select>
             </FormControl>
-            <p>Salida: {valuee}</p>
-            {Time(filterFinishHours()[valuee])}
+            {/* <p>Salida: {hours[valuee]}</p>
+            {Time(hours[valuee])} */}
           </form>
         </div>
 
