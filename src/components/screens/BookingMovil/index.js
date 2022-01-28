@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
 import { Select, FormControl, InputLabel, MenuItem } from "@material-ui/core";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./index.scss";
 
 export const BookingMovil = () => {
@@ -76,7 +76,6 @@ export const BookingMovil = () => {
     let hour = today.getHours()
     let minute = today.getMinutes()
 
-
     if (month === 1) {
       month = `0` + 1
     } else if (month === 2) {
@@ -138,12 +137,27 @@ export const BookingMovil = () => {
       minute = `00`
     }
 
+    let FullDate = `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
+    console.log("FullDate", FullDate);
+
     return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
   }
 
   //entrada < horas de finalización >= (entrada + 6) 
 
   // hours.map((hour, index) => console.log("hour", index))
+
+
+  const filterFinishHours = () => {
+    if(!value && value !== 0) return [];
+    
+
+
+    return hours.filter((_, index) => index > +value && index <= value +6)
+
+    
+  }
+
 
 
   return (
@@ -169,8 +183,6 @@ export const BookingMovil = () => {
           </form>
 
           <form className="LabelForm">
-
-
             <FormControl className="FormControl">
               <InputLabel>Hora de entrada: </InputLabel>
               <Select onChange={handleChange} >
@@ -181,8 +193,6 @@ export const BookingMovil = () => {
             </FormControl>
             <p>Entrada: {hours[value]}</p>
             {Time(hours[value])}
-            {/* {visibleHours()} */}
-
           </form>
 
 
@@ -190,22 +200,14 @@ export const BookingMovil = () => {
           <form className="LabelForm">
             <FormControl className="FormControl">
               <InputLabel>Hora de Salida: </InputLabel>
-              <Select onChange={handleChangeOut}>
+              <Select disabled={!value && value !== 0} onChange={handleChangeOut}>
                 {
-                  hours.map((hour, index) => <MenuItem key={index} value={index}>{hour}</MenuItem>)
+                  filterFinishHours().map((hour, index) => <MenuItem key={index} value={index}>{hour}</MenuItem>)
                 }
               </Select>
             </FormControl>
-
-
             <p>Salida: {hours[valuee]}</p>
-
-
             {Time(hours[valuee])}
-
-
-
-
           </form>
 
 
