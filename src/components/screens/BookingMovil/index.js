@@ -169,8 +169,6 @@ export const BookingMovil = () => {
           </form>
 
           <form className="LabelForm">
-
-
             <FormControl className="FormControl">
               <InputLabel>Hora de entrada: </InputLabel>
               <Select onChange={handleChange} >
@@ -196,23 +194,9 @@ export const BookingMovil = () => {
                 }
               </Select>
             </FormControl>
-
-
             <p>Salida: {hours[valuee]}</p>
-
-
             {Time(hours[valuee])}
-
-
-
-
           </form>
-
-
-
-
-
-
         </div>
 
 
