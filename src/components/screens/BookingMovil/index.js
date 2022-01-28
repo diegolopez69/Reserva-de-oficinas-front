@@ -144,18 +144,13 @@ export const BookingMovil = () => {
   }
 
   //entrada < horas de finalización >= (entrada + 6) 
-
   // hours.map((hour, index) => console.log("hour", index))
 
 
   const filterFinishHours = () => {
     if(!value && value !== 0) return [];
-    
-
 
     return hours.filter((_, index) => index > +value && index <= value +6)
-
-    
   }
 
 
@@ -209,12 +204,6 @@ export const BookingMovil = () => {
             <p>Salida: {hours[valuee]}</p>
             {Time(hours[valuee])}
           </form>
-
-
-
-
-
-
         </div>
 
 
