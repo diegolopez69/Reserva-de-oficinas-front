@@ -10,12 +10,12 @@ export const LoginGoogle = () => {
   const responseGoogle= (respuesta)=>{
     
     console.log(respuesta.profileObj);
-    console.log("Email", respuesta.profileObj.email);
-    console.log("Nombre",respuesta.profileObj.givenName);
+    // console.log("Nombre",respuesta.profileObj.givenName);
     
     if(respuesta.profileObj){
       localStorage.setItem("familyName", respuesta.profileObj.familyName);
       localStorage.setItem("email", respuesta.profileObj.email);
+      localStorage.setItem("name", respuesta.profileObj.name);
       history.push("/bookingMovil")
     }else{
       alert("No hubo exito al autenticar")

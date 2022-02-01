@@ -49,13 +49,16 @@ export const BookingMovil = () => {
   };
 
 
+  const create_by = localStorage.getItem("name");
+  
+
   const PostMethod = () => {
     // POST request using fetch inside useEffect React hook
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       // body: JSON.stringify({ start_time: value, end_time: valuee, room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" })
-      body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: "admin", name: textInput, description: "ejemplo1@alumnos.uneatlantico.es" } })
+      body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: create_by, name: textInput, description: "ejemplo1@alumnos.uneatlantico.es" } })
     };
     console.log(requestOptions.body);
     fetch('http://172.20.10.5:3000/links/aceptar_reserva', requestOptions)
