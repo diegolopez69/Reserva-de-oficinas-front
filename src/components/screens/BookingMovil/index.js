@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
 import { Select, FormControl, InputLabel, MenuItem } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { LoginGoogle } from "../../organisms";
 import "./index.scss";
 
 export const BookingMovil = () => {
@@ -43,10 +44,10 @@ export const BookingMovil = () => {
   const handleChange = e => setValue(e.target.value);
   const handleChangeOut = e => setValuee(e.target.value);
 
-  
+
 
   const PostMethod = () => {
-    
+
     // POST request using fetch inside useEffect React hook
     const requestOptions = {
       method: 'POST',
@@ -141,7 +142,7 @@ export const BookingMovil = () => {
     let FullDate = `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
     console.log("FullDate", FullDate);
 
-    
+
     return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
   }
 
@@ -150,9 +151,9 @@ export const BookingMovil = () => {
 
 
   const filterFinishHours = () => {
-    if(!value && value !== 0) return [];
-    
-    return hours.filter((_, index) => index > + value && index <= value +6)
+    if (!value && value !== 0) return [];
+
+    return hours.filter((_, index) => index > + value && index <= value + 6)
   }
 
 
@@ -165,7 +166,7 @@ export const BookingMovil = () => {
       <div className="GeneralFormOfBookingMovil">
 
         <div className="FormName">
-          <p className="TextOfNameOnForm">Diego López</p>
+          <p className="TextOfNameOnForm">{localStorage.getItem("familyName")}</p>
         </div>
 
         <div className="InsideForm">
@@ -176,8 +177,11 @@ export const BookingMovil = () => {
 
           <form className="LabelForm">
             <label>Correo: </label>
-            <label>diego.lopez@alumnos.uneatlantico.es</label>
+            <label>{localStorage.getItem("email")}
+            </label>
           </form>
+
+
 
           <form className="LabelForm">
             <FormControl className="FormControl">
@@ -189,7 +193,7 @@ export const BookingMovil = () => {
               </Select>
             </FormControl>
             <p>Entrada: {hours[value]}</p>
-            {Time(hours[value])}
+            {/* {Time(hours[value])} */}
           </form>
 
 
@@ -203,8 +207,9 @@ export const BookingMovil = () => {
                 }
               </Select>
             </FormControl>
-            <p>Salida: {valuee}</p>
-            {Time(filterFinishHours()[valuee])}
+            <p>Salida: {filterFinishHours()[valuee]}</p>
+            
+            {/* {Time(filterFinishHours()[valuee])} */}
           </form>
         </div>
 
