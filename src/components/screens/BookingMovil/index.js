@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
-import { Select, FormControl, InputLabel, MenuItem } from "@material-ui/core";
+import { Select, FormControl, InputLabel, MenuItem, TextField } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { LoginGoogle } from "../../organisms";
 import "./index.scss";
 
 export const BookingMovil = () => {
@@ -41,19 +40,22 @@ export const BookingMovil = () => {
 
   const [value, setValue] = useState("");
   const [valuee, setValuee] = useState("");
+  const [textInput, setTextInput] = useState('');
   const handleChange = e => setValue(e.target.value);
   const handleChangeOut = e => setValuee(e.target.value);
-
+  
+  const handleTextInputChange = event => {
+    setTextInput(event.target.value);
+  };
 
 
   const PostMethod = () => {
-
     // POST request using fetch inside useEffect React hook
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       // body: JSON.stringify({ start_time: value, end_time: valuee, room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" })
-      body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: "admin", name: "Titulo 1", description: "ejemplo1@alumnos.uneatlantico.es" } })
+      body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: "admin", name: textInput, description: "ejemplo1@alumnos.uneatlantico.es" } })
     };
     console.log(requestOptions.body);
     fetch('http://172.20.10.5:3000/links/aceptar_reserva', requestOptions)
@@ -152,11 +154,8 @@ export const BookingMovil = () => {
 
   const filterFinishHours = () => {
     if (!value && value !== 0) return [];
-
     return hours.filter((_, index) => index > + value && index <= value + 6)
   }
-
-
 
   return (
     <div className='MainScreenBookingMovile'>
@@ -177,8 +176,17 @@ export const BookingMovil = () => {
 
           <form className="LabelForm">
             <label>Correo: </label>
-            <label>{localStorage.getItem("email")}
-            </label>
+            <label>{localStorage.getItem("email")}</label>
+          </form>
+
+          <form className="LabelForm">
+            <TextField
+            className="FormControl"
+              label="Motivo de la reserva"
+              value={textInput}
+              onChange={handleTextInputChange}
+            />
+            {/* <p>Texto: {textInput}</p> */}
           </form>
 
 
@@ -208,7 +216,7 @@ export const BookingMovil = () => {
               </Select>
             </FormControl>
             <p>Salida: {filterFinishHours()[valuee]}</p>
-            
+
             {/* {Time(filterFinishHours()[valuee])} */}
           </form>
         </div>
