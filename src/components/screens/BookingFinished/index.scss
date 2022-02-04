@@ -1,11 +1,22 @@
-.MainScreenBookingFinished{
-    background-color: #006696;
-    .IconCheck{
-        color: white;
-        
-    }
-    .TextOfBookingFinished{
-        color: white;
-        font-size: 90px;
+.MainScreenBookingFinished {
+    background-color: #3b83bd;
+    height: 900px;
+    text-align: center;
+
+    .FinishedBooking {
+        width: 369px;
+        padding: auto;
+        margin: 300px 0 0 0;
+        background-color: #006696;
+        display: inline-block;
+        .IconCheck{
+            color: white;
+            padding-top: 15px;
+        }
+        .TextOfBookingFinished{
+            color: white;
+            font-size: 70px;
+        }
+    
     }
 }
