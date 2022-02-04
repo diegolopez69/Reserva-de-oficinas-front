@@ -201,13 +201,8 @@ export const BookingMovil = () => {
                 }
               </Select>
             </FormControl>
-<<<<<<< HEAD
-            <p>Salida: {hours[valuee]}</p>
-            {Time(hours[valuee])}
-=======
             <p>Salida: {valuee}</p>
             {Time(filterFinishHours()[valuee])}
->>>>>>> feature/reservaMovil
           </form>
         </div>
 
