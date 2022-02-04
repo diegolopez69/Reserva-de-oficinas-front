@@ -123,7 +123,7 @@ export const Availability = () => {
         </Link>
         <div className='SpaceForTheTitleOfFloorTwo'>
           <h1 className='HeaderTextOfScreenFloor'>
-            Planta 2 - Aula 2.1
+            Planta 2 - aula 2.1
           </h1>
         </div>
       </div>
