@@ -12,8 +12,6 @@ export const Home = () => {
       <div className='TitleOfTheMainScreen'>
         <h2 className='TextOfTheTitleOnMainScreen'>Sistema de reservas de aulas.</h2>
       </div>
-
-
       <div className='GeneralCircleOfMainScreen'>
         <div className="Circle">
           <img src={logoUneat} className="ImgLogoMovil"></img>
@@ -24,7 +22,6 @@ export const Home = () => {
               </Button>
             </Link>
           </div>
-
         </div>
       </div>
     </div>
