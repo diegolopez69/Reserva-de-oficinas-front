@@ -22,6 +22,8 @@ export const FloorTwo = () => {
       </div>
 
       <div className='GeneralOfBtnOnFloorTwo'>
+
+
         <Link to="/floorTwoClass">
           <Button className='EachBtwOnFloorTwo'>
             2.1
@@ -38,6 +40,8 @@ export const FloorTwo = () => {
           2.4
         </Button>
       </div>
+
+
       <div className='GeneralOfBtnOnFloorTwo'>
         <Button className='EachBtwOnFloorTwo'>
           2.5
