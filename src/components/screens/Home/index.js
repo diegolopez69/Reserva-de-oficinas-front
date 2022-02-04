@@ -15,12 +15,17 @@ export const Home = () => {
 
 
       <div className='GeneralCircleOfMainScreen'>
-        <img src={logoUneat} className="ImgLogoMovil"></img>
-        <Link to="/floor">
-          <Button variant="contained" color="primary" className="BtnEntrarMainScreen">
-            Entrar
-          </Button>
-        </Link>
+        <div className="Circle">
+          <img src={logoUneat} className="ImgLogoMovil"></img>
+          <div className="btnEnter">
+            <Link to="/floor">
+              <Button variant="contained" color="primary" className="BtnEntrarMainScreen">
+                Entrar
+              </Button>
+            </Link>
+          </div>
+
+        </div>
       </div>
     </div>
   );
