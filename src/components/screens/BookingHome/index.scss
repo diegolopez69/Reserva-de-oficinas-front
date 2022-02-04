@@ -1,6 +1,39 @@
-.MainScreenBookingFinished{
-    .ImgLogoMovil{
-        width: 200px;
-        margin-top: 25px;
+.MainScreenLogin {
+    background-color: #3b83bd;
+    height: 900px;
+    text-align: center;
+    .TitleOfTheMainScreen {
+        background-color: #006696;
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+        .TextOfTheTitleOnMainScreen {
+            color: white;
+        }
+    }
+
+    .GeneralCircleOfMainScreen {
+        width: 369px;
+        padding: auto;
+        margin: 100px 0 0 0;
+        height: 369px;
+
+        justify-content: center;
+        display: inline-block;
+        border-radius: 400px;
+        .Circle {
+            display: block;
+            margin-top: 40px;
+            .ImgLogoMovil {
+                width: 180px;
+                border-radius: 90px;
+            }
+            .btnEnter {
+                .BtnEntrarMainScreen {
+                    background-color: #939597;
+                    color: black;
+                }
+            }
+        }
     }
 }
