@@ -11,12 +11,6 @@ export const BookingFinished = () => {
                 <p className="TextOfBookingFinished">Reserva realizada</p>
             </div>
         </div>
-
-
-        // <div className='MainScreenBookingFinished'>
-        //     <CheckCircleIcon className="IconCheck"/>
-        //     <p className="TextOfBookingFinished">Reserva terminada!</p>
-        // </div>
     );
 };
 
