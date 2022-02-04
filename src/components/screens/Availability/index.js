@@ -9,10 +9,10 @@ import "./index.scss";
 export const Availability = () => {
   const { min, min2, hour, dayName, day, dayNumber, monthName, month, year } = Time()
   const [stateOfBooking, setStateOfBooking] = useState(0)
+
   async function fetchData() {
-    const { data } = await axios.get(`http://172.20.10.5:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
-    
-    //console.log('http://172.20.10.3:3000/links/1/',dayName,'&',monthName,'&',dayNumber,'&',year,'&',hour,':',min,'/',dayName,'&',monthName,'&',dayNumber,'&',year,'&',hour,':',min2);
+    //console.log(`http://172.20.10.5:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`);
+    const { data } = await axios.get(`http://172.27.65.240:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`)
     // const { data } = await axios.get("http://172.20.10.3:3000/links/1/Fri&Dec&17&2021&10:00/Fri&Dec&17&2021&24:00")
     if (data.disponibilidad[0] != null) {
       setStateOfBooking(1)
@@ -112,7 +112,7 @@ export const Availability = () => {
       year: yyyy
     }
   }
-  //Test
+  
   return (
     <div className='GeneralFloorTwo'>
       <div className='HeaderOfFloors'>
@@ -127,8 +127,6 @@ export const Availability = () => {
           </h1>
         </div>
       </div>
-
-      {/* {stateOfBooking === 1 ? <BookingRed /> : <BookingGreen />} */}
       {stateOfBooking === 1 ? <BookingRed min={min} hour={hour} dayName={dayName} day={day} month={month} year={year} /> : <BookingGreen min={min} hour={hour} dayName={dayName} day={day} month={month} year={year} />}
     </div>
   );

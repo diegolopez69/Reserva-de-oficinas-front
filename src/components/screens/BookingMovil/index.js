@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
-import { Select, FormControl, InputLabel, MenuItem } from "@material-ui/core";
+import { Select, FormControl, InputLabel, MenuItem, TextField } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "./index.scss";
 
@@ -40,22 +40,28 @@ export const BookingMovil = () => {
 
   const [value, setValue] = useState("");
   const [valuee, setValuee] = useState("");
+  const [textInput, setTextInput] = useState('');
   const handleChange = e => setValue(e.target.value);
   const handleChangeOut = e => setValuee(e.target.value);
+  
+  const handleTextInputChange = event => {
+    setTextInput(event.target.value);
+  };
 
+
+  const create_by = localStorage.getItem("name");
   
 
   const PostMethod = () => {
-    
     // POST request using fetch inside useEffect React hook
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       // body: JSON.stringify({ start_time: value, end_time: valuee, room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" })
-      body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: "admin", name: "Titulo 1", description: "ejemplo1@alumnos.uneatlantico.es" } })
+      body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: create_by, name: textInput, description: "ejemplo1@alumnos.uneatlantico.es" } })
     };
     console.log(requestOptions.body);
-    fetch('http://172.20.10.5:3000/links/aceptar_reserva', requestOptions)
+    fetch('http://172.27.65.240:3000/links/aceptar_reserva', requestOptions)
       .then(response => response.json())
       .then(data => setValue(data.id)).catch(exception => console.error(exception));
 
@@ -141,7 +147,7 @@ export const BookingMovil = () => {
     let FullDate = `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
     console.log("FullDate", FullDate);
 
-    
+
     return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
   }
 
@@ -150,9 +156,8 @@ export const BookingMovil = () => {
 
 
   const filterFinishHours = () => {
-    if(!value && value !== 0) return [];
-    
-    return hours.filter((_, index) => index > + value && index <= value +6)
+    if (!value && value !== 0) return [];
+    return hours.filter((_, index) => index > + value && index <= value + 6)
   }
 
   return (
@@ -163,7 +168,7 @@ export const BookingMovil = () => {
       <div className="GeneralFormOfBookingMovil">
 
         <div className="FormName">
-          <p className="TextOfNameOnForm">Diego López</p>
+          <p className="TextOfNameOnForm">{localStorage.getItem("familyName")}</p>
         </div>
 
         <div className="InsideForm">
@@ -174,8 +179,20 @@ export const BookingMovil = () => {
 
           <form className="LabelForm">
             <label>Correo: </label>
-            <label>diego.lopez@alumnos.uneatlantico.es</label>
+            <label>{localStorage.getItem("email")}</label>
           </form>
+
+          <form className="LabelForm">
+            <TextField
+            className="FormControl"
+              label="Motivo de la reserva"
+              value={textInput}
+              onChange={handleTextInputChange}
+            />
+            {/* <p>Texto: {textInput}</p> */}
+          </form>
+
+
 
           <form className="LabelForm">
             <FormControl className="FormControl">
@@ -187,7 +204,7 @@ export const BookingMovil = () => {
               </Select>
             </FormControl>
             <p>Entrada: {hours[value]}</p>
-            {Time(hours[value])}
+            {/* {Time(hours[value])} */}
           </form>
 
 
@@ -201,8 +218,9 @@ export const BookingMovil = () => {
                 }
               </Select>
             </FormControl>
-            <p>Salida: {valuee}</p>
-            {Time(filterFinishHours()[valuee])}
+            <p>Salida: {filterFinishHours()[valuee]}</p>
+
+            {/* {Time(filterFinishHours()[valuee])} */}
           </form>
         </div>
 
