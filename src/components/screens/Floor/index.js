@@ -8,18 +8,26 @@ import "./index.scss";
 export const Floor = () => {
   return (
     <div className='GeneralFloors'>
-      <div className='HeaderOfFloors'>
+
+
+
+<div className='HeaderOfFloors'>
         <Link to="/">
           <Button className='BtnToGoBack'>
             <ArrowBackIosIcon className='IconToGoBack' />
           </Button>
         </Link>
-        <div className='SpaceForTheTitle'>
+
+
+        <div className='SpaceForTheTitleOfFloorTwo'>
           <h1 className='HeaderTextOfScreenFloor'>
-            Selecciona una planta
+            Seleccione una planta
           </h1>
         </div>
       </div>
+
+
+
 
       <div className='BtnOfFloors'>
         <Link to="/floor">

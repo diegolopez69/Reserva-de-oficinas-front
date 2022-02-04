@@ -3,25 +3,22 @@
         background-color: #006696;
         display: flex;
         .BtnToGoBack {
-            
             .IconToGoBack {
                 color: white;
+                margin-top: 20px;
             }
         }
-
-        .SpaceForTheTitle {
-            // text-align: center;
-            // justify-content: center;
-            margin: auto;
-            .HeaderTextOfScreenFloor {
-                color: white;
-            }
+        .SpaceForTheTitleOfFloorTwo{
+            color: white;
+            justify-content: center ;
+            width: 100%;
         }
     }
     .BtnOfFloors {
         .BtnOfEachFloor {
             background-color: #939597;
-            width: 1440px;
+            width: 90%;
+            margin-top: 10px;
         }
     }
 }
