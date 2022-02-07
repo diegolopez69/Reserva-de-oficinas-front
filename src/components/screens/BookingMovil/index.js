@@ -43,14 +43,11 @@ export const BookingMovil = () => {
   const [textInput, setTextInput] = useState('');
   const handleChange = e => setValue(e.target.value);
   const handleChangeOut = e => setValuee(e.target.value);
-  
   const handleTextInputChange = event => {
     setTextInput(event.target.value);
   };
-
-
   const create_by = localStorage.getItem("name");
-  
+
 
   const PostMethod = () => {
     // POST request using fetch inside useEffect React hook
@@ -64,7 +61,6 @@ export const BookingMovil = () => {
     fetch('http://172.27.65.240:3000/links/aceptar_reserva', requestOptions)
       .then(response => response.json())
       .then(data => setValue(data.id)).catch(exception => console.error(exception));
-
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }
 
@@ -72,8 +68,6 @@ export const BookingMovil = () => {
   const RouteChange = () => {
     history.push("/bookingFinished");
   }
-
-
 
   //2022-01-25T12:00:00
   function Time(time) {
@@ -114,7 +108,6 @@ export const BookingMovil = () => {
       month = 12
     }
 
-
     if (date === 1) {
       date = `0` + 1
     } else if (date === 2) {
@@ -135,7 +128,6 @@ export const BookingMovil = () => {
       date = `0` + 9
     }
 
-
     if (hour === 7) {
       hour = `0` + 7
     } else if (hour === 8) {
@@ -144,22 +136,15 @@ export const BookingMovil = () => {
       hour = `0` + 9
     }
 
-
     if (minute === 0) {
       minute = `00`
     }
-
     let FullDate = `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
     console.log("FullDate", FullDate);
-
-
     return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
   }
-
   //entrada < horas de finalización >= (entrada + 6) 
   // hours.map((hour, index) => console.log("hour", index))
-
-
   const filterFinishHours = () => {
     if (!value && value !== 0) return [];
     return hours.filter((_, index) => index > + value && index <= value + 6)
@@ -171,11 +156,9 @@ export const BookingMovil = () => {
         <p className="TextOfHeader">Reserva</p>
       </div>
       <div className="GeneralFormOfBookingMovil">
-
         <div className="FormName">
           <p className="TextOfNameOnForm">{localStorage.getItem("familyName")}</p>
         </div>
-
         <div className="InsideForm">
           <form className="LabelForm">
             <label>Aula: </label>
@@ -189,15 +172,13 @@ export const BookingMovil = () => {
 
           <form className="LabelForm">
             <TextField
-            className="FormControl"
+              className="FormControl"
               label="Motivo de la reserva"
               value={textInput}
               onChange={handleTextInputChange}
             />
             {/* <p>Texto: {textInput}</p> */}
           </form>
-
-
 
           <form className="LabelForm">
             <FormControl className="FormControl">
@@ -211,8 +192,6 @@ export const BookingMovil = () => {
             <p>Entrada: {hours[value]}</p>
             {/* {Time(hours[value])} */}
           </form>
-
-
 
           <form className="LabelForm">
             <FormControl className="FormControl">
@@ -229,16 +208,13 @@ export const BookingMovil = () => {
           </form>
         </div>
 
-
         <div className="BtnToBooking">
-          
-            <Button className="BtnReservar" onClick={() => {
-              RouteChange()
-              PostMethod();
-            }}>Reservar</Button>
-          
-        </div>
+          <Button className="BtnReservar" onClick={() => {
+            RouteChange()
+            PostMethod();
+          }}>Reservar</Button>
 
+        </div>
       </div>
     </div>
   );
