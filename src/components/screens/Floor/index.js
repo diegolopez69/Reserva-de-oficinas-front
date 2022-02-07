@@ -1,11 +1,20 @@
 import React from "react";
 import Button from '@material-ui/core/Button';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import "./index.scss";
 
 
 export const Floor = () => {
+
+  const history = useHistory();
+  const RouteChange = () => {
+    history.push("/floorTwo");
+  }
+
+
+  
+  
   return (
     <div className='GeneralFloors'>
 
@@ -30,41 +39,30 @@ export const Floor = () => {
 
 
       <div className='BtnOfFloors'>
-        <Link to="/floor">
-          <Button className='BtnOfEachFloor'>
+        
+          <Button onClick={RouteChange} className='BtnOfEachFloor'>
             Planta 3
           </Button>
-        </Link>
-        <Link to="/floorTwo">
-          <Button className='BtnOfEachFloor'>
+
+          <Button onClick={RouteChange} className='BtnOfEachFloor'>
             Planta 2
           </Button>
-        </Link>
-        <Link to="/floor">
-          <Button className='BtnOfEachFloor'>
+
+          <Button onClick={RouteChange} className='BtnOfEachFloor'>
             Planta 1
           </Button>
-        </Link>
-        <Link to="/floor">
-          <Button className='BtnOfEachFloor'>
+
+          <Button onClick={RouteChange} className='BtnOfEachFloor'>
             Planta 0
           </Button>
-        </Link>
-        <Link to="/floor">
-          <Button className='BtnOfEachFloor'>
+
+          <Button onClick={RouteChange} className='BtnOfEachFloor'>
             Planta -1
           </Button>
-        </Link>
-        <Link to="/floor">
-          <Button className='BtnOfEachFloor'>
+
+          <Button onClick={RouteChange} className='BtnOfEachFloor'>
             Planta -2
           </Button>
-        </Link>
-
-
-
-
-
 
       </div>
 

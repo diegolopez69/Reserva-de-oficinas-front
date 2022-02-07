@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
 import { Select, FormControl, InputLabel, MenuItem, TextField } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./index.scss";
 
 export const BookingMovil = () => {
@@ -66,6 +66,11 @@ export const BookingMovil = () => {
       .then(data => setValue(data.id)).catch(exception => console.error(exception));
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  }
+
+  const history = useHistory();
+  const RouteChange = () => {
+    history.push("/bookingFinished");
   }
 
 
@@ -226,11 +231,12 @@ export const BookingMovil = () => {
 
 
         <div className="BtnToBooking">
-          <Link to="/bookingFinished">
+          
             <Button className="BtnReservar" onClick={() => {
+              RouteChange()
               PostMethod();
             }}>Reservar</Button>
-          </Link>
+          
         </div>
 
       </div>

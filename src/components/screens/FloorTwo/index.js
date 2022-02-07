@@ -8,13 +8,12 @@ import "./index.scss";
 
 export const FloorTwo = () => {
 
+  
   const history = useHistory();
-
   const RouteChange = () => {
-
-
     history.push("/floorTwoClass");
   }
+  
 
 
 
