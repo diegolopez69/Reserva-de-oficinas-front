@@ -58,7 +58,7 @@ export const BookingMovil = () => {
       body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: create_by, name: textInput, description: "ejemplo1@alumnos.uneatlantico.es" } })
     };
     console.log(requestOptions.body);
-    fetch('http://172.27.65.240:3000/links/aceptar_reserva', requestOptions)
+    fetch('http://172.27.18.169:3000/links/aceptar_reserva', requestOptions)
       .then(response => response.json())
       .then(data => setValue(data.id)).catch(exception => console.error(exception));
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
@@ -79,7 +79,7 @@ export const BookingMovil = () => {
     today.setSeconds(0);
     let month = today.getMonth() + 1
     let date = today.getDate()
-    let hour = today.getHours()
+    let hour = today.getHours() + 1
     let minute = today.getMinutes()
 
     if (month === 1) {
