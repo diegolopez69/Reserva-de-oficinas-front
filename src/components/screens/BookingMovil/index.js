@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
 import { Select, FormControl, InputLabel, MenuItem, TextField } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import moment from 'moment'
 import "./index.scss";
 
 export const BookingMovil = () => {
@@ -58,7 +59,7 @@ export const BookingMovil = () => {
       body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: create_by, name: textInput, description: "ejemplo1@alumnos.uneatlantico.es" } })
     };
     console.log(requestOptions.body);
-    fetch('http://172.27.18.169:3000/links/aceptar_reserva', requestOptions)
+    fetch('http://172.27.65.240:3000/links/aceptar_reserva', requestOptions)
       .then(response => response.json())
       .then(data => setValue(data.id)).catch(exception => console.error(exception));
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
@@ -70,8 +71,12 @@ export const BookingMovil = () => {
   }
 
   //2022-01-25T12:00:00
+
   function Time(time) {
     if (!time) return ""
+
+    //const dateMoment2 = moment().utc().format("YYYY-MM-DDTHH:mm")
+
     const tiempo = time.split(":")
     let today = new Date();
     today.setHours(tiempo[0])
@@ -139,10 +144,17 @@ export const BookingMovil = () => {
     if (minute === 0) {
       minute = `00`
     }
+
+
+    const dateMoment3 = moment().utc().format(`YYYY-MM-DDT${hour}:${minute}:mm`)
+    console.log("dateMoment3",dateMoment3);
+
     let FullDate = `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
     console.log("FullDate", FullDate);
     return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
+    //return dateMoment3
   }
+
   //entrada < horas de finalización >= (entrada + 6) 
   // hours.map((hour, index) => console.log("hour", index))
   const filterFinishHours = () => {
@@ -157,7 +169,7 @@ export const BookingMovil = () => {
       </div>
       <div className="GeneralFormOfBookingMovil">
         <div className="FormName">
-          <p className="TextOfNameOnForm">{localStorage.getItem("familyName")}</p>
+          <p className="TextOfNameOnForm">{localStorage.getItem("name")}</p>
         </div>
         <div className="InsideForm">
           <form className="LabelForm">
