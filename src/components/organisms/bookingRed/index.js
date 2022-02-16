@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import QRCode from "react-qr-code";
+import axios from "axios";
 import "./index.scss";
 
 export const BookingRed = (props) => {
+
+  async function fetchData() {
+    const { data } = await axios.get(`http://172.27.65.240:3000/links/who/1/Fri&Feb&16&2022&07:49/Fri&Feb&16&2022&22:50`)
+
+    console.log(data.disponibilidad);
+    console.log(data.disponibilidad.create_by);
+    console.log(data.disponibilidad.name);
+    console.log(data.disponibilidad.end_time);
+    
+    // if (data.disponibilidad[0] != null) {
+    //   setStateOfBooking(1)
+    // } else {
+    //   setStateOfBooking(0)
+    // }
+  }
+
+  useEffect(() => {
+    fetchData();
+  })
 
   return (
     <div className='GeneralFloorTwo'>
@@ -21,10 +41,6 @@ export const BookingRed = (props) => {
             <h3>Hoy</h3>
           </div>
           <div className='BookingPart'>
-            {/* <p >Descripción :</p> <p>props.description</p> <br/>
-            <p >Nombre :</p> <p>props.name</p><br/>
-            <p >Hora de inicio :</p> <p>props.start</p><br/>
-            <p >Hora de finalización :</p> <p>props.end</p> */}
             <p>
               Lo sentimos, en este momento la sala de reuniones esta siendo utilizada, vuelve a intentarlo en media hora.
             </p>
