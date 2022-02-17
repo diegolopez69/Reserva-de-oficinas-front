@@ -1,36 +1,76 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Grid from '@material-ui/core/Grid';
 import QRCode from "react-qr-code";
 import axios from "axios";
+import moment from "moment";
 import "./index.scss";
 
 export const BookingRed = (props) => {
+  const [dataInformation, setData] = useState({
+    create_by:"", 
+    name:"", 
+    end_time:"" 
+  })
+  // const { } = fetchData()
+
 
   async function fetchData() {
     const { data } = await axios.get(`http://172.27.65.240:3000/links/who/1/Fri&Feb&16&2022&07:49/Fri&Feb&16&2022&22:50`)
-
+    Time ()
     console.log(data.disponibilidad);
     console.log(data.disponibilidad.create_by);
     console.log(data.disponibilidad.name);
     console.log(data.disponibilidad.end_time);
-    
-    // if (data.disponibilidad[0] != null) {
-    //   setStateOfBooking(1)
-    // } else {
-    //   setStateOfBooking(0)
-    // }
+
+    let payload = {
+      create_by: data.disponibilidad.create_by,
+      name: data.disponibilidad.name,
+      end_time: data.disponibilidad.end_time
+    }
+
+    setData(payload)
   }
 
   useEffect(() => {
     fetchData();
-  })
+  },[])
+
+  function Time() {
+    let now = moment().format("ddd, MMM D YYYY, h:mm"); // Fri, Feb 14 2010, 3:25"
+
+    let dayLetter = moment().format("ddd");
+    let month = moment().format("MMM");
+    let day = moment().format("D");
+    let year = moment().format("YYYY");
+    let hour = moment().format("h");
+    let minute = moment().format("mm");
+
+    console.log(now);
+    console.log(dayLetter);
+    console.log(month);
+    console.log(day);
+    console.log(year);
+    console.log(hour);
+    console.log(minute);
+
+    return {
+      dayLetter: dayLetter,
+      month: month,
+      day: day,
+      year: year,
+      hour: hour,
+      minute: minute
+    }
+  }
+
+
 
   return (
     <div className='GeneralFloorTwo'>
       <Grid container className='GeneralSecondPart'>
         <Grid item xs={7} className='GeneralStateOfTheRoomTwo'>
           <div className='GeneralOfFirstLine'>
-          <h3 className='TextOfFirstLine'>{props.hour}:{props.min} {props.dayName} {props.day}/{props.month}/{props.year}</h3>
+            <h3 className='TextOfFirstLine'>{props.hour}:{props.min} {props.dayName} {props.day}/{props.month}/{props.year}</h3>
           </div>
           <div className='GeneralOfSecondLine'>
             <p className='TextOfSecondLine'>OCUPADA</p>
@@ -41,11 +81,17 @@ export const BookingRed = (props) => {
             <h3>Hoy</h3>
           </div>
           <div className='BookingPart'>
+            {/* <p>
+              Lo sentimos, en este momento la sala de reuniones esta siendo utilizada por {dataInformation.create_by}
+              , vuelve a intentarlo en media hora.
+            </p> */}
             <p>
-              Lo sentimos, en este momento la sala de reuniones esta siendo utilizada, vuelve a intentarlo en media hora.
+              Motivo: {dataInformation.name} <br/>
+              Reservada por: {dataInformation.create_by}<br/>
+              Hora de finalización: {dataInformation.end_time}<br/>
             </p>
-            
-            <br/>
+
+            <br />
             <QRCode value="http://172.27.65.240:1377/bookingMovil" />
           </div>
         </Grid>
@@ -54,4 +100,4 @@ export const BookingRed = (props) => {
 
     </div>
   );
-};
+};  
