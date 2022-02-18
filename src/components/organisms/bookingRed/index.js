@@ -24,17 +24,17 @@ export const BookingRed = (props) => {
 
 
 
-    let newEnd_time = data.disponibilidad.end_time * 1000;
-    const finishTime = new Date(newEnd_time);
+    // let newEnd_time = data.disponibilidad.end_time * 1000;
+    // const finishTime = new Date(newEnd_time);
 
-    const timestampObj = moment.unix(newEnd_time);
-    const result = timestampObj.format("HH:mm:ss")
+    // const timestampObj = moment.unix(newEnd_time);
+    // const result = timestampObj.format("HH:mm:ss")
 
-    console.log("result", result);
+    //console.log("result", result);
     let payload = {
       create_by: data.disponibilidad.create_by,
       name: data.disponibilidad.name,
-      end_time: finishTime
+      end_time: data.disponibilidad.end_time
     }
 
     setData(payload)
