@@ -7,25 +7,34 @@ import "./index.scss";
 
 export const BookingRed = (props) => {
   const [dataInformation, setData] = useState({
-    create_by:"", 
-    name:"", 
-    end_time:"" 
+    create_by: "",
+    name: "",
+    end_time: ""
   })
   // const { } = fetchData()
 
 
   async function fetchData() {
     const { data } = await axios.get(`http://172.27.65.240:3000/links/who/1/Fri&Feb&16&2022&07:49/Fri&Feb&16&2022&22:50`)
-    Time ()
+    Time()
     console.log(data.disponibilidad);
     console.log(data.disponibilidad.create_by);
     console.log(data.disponibilidad.name);
     console.log(data.disponibilidad.end_time);
 
+
+
+    let newEnd_time = data.disponibilidad.end_time * 1000;
+    const finishTime = new Date(newEnd_time);
+
+    const timestampObj = moment.unix(newEnd_time);
+    const result = timestampObj.format("HH:mm:ss")
+
+    console.log("result", result);
     let payload = {
       create_by: data.disponibilidad.create_by,
       name: data.disponibilidad.name,
-      end_time: data.disponibilidad.end_time
+      end_time: finishTime
     }
 
     setData(payload)
@@ -33,7 +42,7 @@ export const BookingRed = (props) => {
 
   useEffect(() => {
     fetchData();
-  },[])
+  }, [])
 
   function Time() {
     let now = moment().format("ddd, MMM D YYYY, h:mm"); // Fri, Feb 14 2010, 3:25"
@@ -85,10 +94,11 @@ export const BookingRed = (props) => {
               Lo sentimos, en este momento la sala de reuniones esta siendo utilizada por {dataInformation.create_by}
               , vuelve a intentarlo en media hora.
             </p> */}
+            <p>Lo sentimos, en este momento la sala de reuniones esta siendo utilizada.</p>
             <p>
-              Motivo: {dataInformation.name} <br/>
-              Reservada por: {dataInformation.create_by}<br/>
-              Hora de finalización: {dataInformation.end_time}<br/>
+              Reservada por: {dataInformation.create_by}<br />
+              Motivo: {dataInformation.name} <br />
+              Hora de finalización: {dataInformation.end_time}<br />
             </p>
 
             <br />
