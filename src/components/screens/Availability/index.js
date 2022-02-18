@@ -13,7 +13,7 @@ export const Availability = () => {
   let NewHour  = hour + 1
   async function fetchData() {
     //console.log(`http://172.20.10.5:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${hour}:${min2}`);
-    const { data } = await axios.get(`http://172.27.65.240:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${NewHour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${NewHour}:${min2}`)
+    const { data } = await axios.get(`http://172.27.18.169:3000/links/1/${dayName}&${monthName}&${dayNumber}&${year}&${NewHour}:${min}/${dayName}&${monthName}&${dayNumber}&${year}&${NewHour}:${min2}`)
     if (data.disponibilidad[0] != null) {
       setStateOfBooking(1)
     } else {
