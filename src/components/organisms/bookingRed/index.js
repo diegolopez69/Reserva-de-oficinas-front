@@ -25,6 +25,8 @@ export const BookingRed = (props) => {
     console.log(data.disponibilidad.name);
     console.log(data.disponibilidad.end_time);
 
+    let normalTime = moment(data.disponibilidad.end_time).toDate()
+    
 
 
     // let newEnd_time = data.disponibilidad.end_time * 1000;
@@ -37,7 +39,7 @@ export const BookingRed = (props) => {
     let payload = {
       create_by: data.disponibilidad.create_by,
       name: data.disponibilidad.name,
-      end_time: data.disponibilidad.end_time
+      end_time: normalTime
     }
 
     setData(payload)
