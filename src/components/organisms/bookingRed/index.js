@@ -11,11 +11,14 @@ export const BookingRed = (props) => {
     name: "",
     end_time: ""
   })
+
+  const { dayLetter, month, day, year, hour, newHour} = Time()
   // const { } = fetchData()
 
 
-  async function fetchData() {
-    const { data } = await axios.get(`http://172.27.65.240:3000/links/who/1/Fri&Feb&16&2022&07:49/Fri&Feb&16&2022&22:50`)
+  async function fetchData() {      
+    //console.log(`http://172.20.10.5:3000/links/who/1/${dayLetter}&${month}&${day}&${year}&${hour}:20/${dayLetter}&${month}&${day}&${year}&${newHour}:05`);
+    const { data } = await axios.get(`http://172.27.65.240:3000/links/who/1`)
     Time()
     console.log(data.disponibilidad);
     console.log(data.disponibilidad.create_by);
@@ -51,16 +54,19 @@ export const BookingRed = (props) => {
     let month = moment().format("MMM");
     let day = moment().format("D");
     let year = moment().format("YYYY");
-    let hour = moment().format("h");
+    let hour = moment().format("kk");
     let minute = moment().format("mm");
+    let newHour = moment().add(1, 'hour').format('kk')
 
-    console.log(now);
-    console.log(dayLetter);
-    console.log(month);
-    console.log(day);
-    console.log(year);
-    console.log(hour);
-    console.log(minute);
+    // console.log(now);
+    // console.log(dayLetter);
+    // console.log(month);
+    // console.log(day);
+    // console.log(year);
+    // console.log(hour);
+    // console.log(minute);
+    // console.log(newHour);
+    
 
     return {
       dayLetter: dayLetter,
@@ -68,7 +74,8 @@ export const BookingRed = (props) => {
       day: day,
       year: year,
       hour: hour,
-      minute: minute
+      minute: minute,
+      newHour: newHour
     }
   }
 
