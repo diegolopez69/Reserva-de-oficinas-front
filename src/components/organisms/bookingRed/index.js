@@ -30,7 +30,7 @@ export const BookingRed = (props) => {
             </p>
             
             <br/>
-            <QRCode value="http://172.27.18.169:1377/bookingMovil" />
+            <QRCode value="http://172.27.65.240:1377/bookingMovil" />
           </div>
         </Grid>
       </Grid>
