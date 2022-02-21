@@ -128,7 +128,6 @@ export const Availability = () => {
         </div>
       </div>
       {stateOfBooking === 1 ? <BookingRed min={min} hour={hour} dayName={dayName} day={day} month={month} year={year} /> : <BookingGreen min={min} hour={hour} dayName={dayName} day={day} month={month} year={year} />}
-      {/* <BookingRed min={min} hour={hour} dayName={dayName} day={day} month={month} year={year} /> */}
     </div>
   );
 };

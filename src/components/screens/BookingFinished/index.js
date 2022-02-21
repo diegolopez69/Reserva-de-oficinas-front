@@ -5,7 +5,8 @@ import "./index.scss";
 
 export const BookingFinished = () => {
     return (
-        //<BookingMade/>
-        <BookingRejected/>
+        // <p><label>{localStorage.getItem("response")}</label></p>
+        <BookingMade/>
+        //<BookingRejected/>
     );
 };

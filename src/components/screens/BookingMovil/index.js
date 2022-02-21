@@ -42,13 +42,16 @@ export const BookingMovil = () => {
   const [value, setValue] = useState("");
   const [valuee, setValuee] = useState("");
   const [textInput, setTextInput] = useState('');
+  const [response, setResponse] = useState('');
   const handleChange = e => setValue(e.target.value);
   const handleChangeOut = e => setValuee(e.target.value);
   const handleTextInputChange = event => {
     setTextInput(event.target.value);
   };
   const create_by = localStorage.getItem("name");
-
+  localStorage.setItem("response", response.status);
+  
+  
 
   const PostMethod = () => {
     // POST request using fetch inside useEffect React hook
@@ -58,10 +61,17 @@ export const BookingMovil = () => {
       // body: JSON.stringify({ start_time: value, end_time: valuee, room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" })
       body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: create_by, name: textInput, description: "ejemplo1@alumnos.uneatlantico.es" } })
     };
+
     console.log(requestOptions.body);
     fetch('http://172.27.18.169:3000/links/aceptar_reserva', requestOptions)
       .then(response => response.json())
-      .then(data => setValue(data.id)).catch(exception => console.error(exception));
+      .then(data => console.log("response", data.status), data => setValue(data.id), data => setResponse(data.status))
+      .catch(exception => console.error(exception));
+
+
+    //.then(data => setValue(data.id)).catch(exception => console.error(exception));
+
+
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }
 
@@ -147,7 +157,7 @@ export const BookingMovil = () => {
 
 
     const dateMoment3 = moment().utc().format(`YYYY-MM-DDT${hour}:${minute}:mm`)
-    console.log("dateMoment3",dateMoment3);
+    console.log("dateMoment3", dateMoment3);
 
     let FullDate = `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
     console.log("FullDate", FullDate);
@@ -170,6 +180,7 @@ export const BookingMovil = () => {
       <div className="GeneralFormOfBookingMovil">
         <div className="FormName">
           <p className="TextOfNameOnForm">{localStorage.getItem("name")}</p>
+          {/* <p className="TextOfNameOnForm">{localStorage.getItem("response")}</p> */}
         </div>
         <div className="InsideForm">
           <form className="LabelForm">

@@ -24,19 +24,9 @@ export const BookingRed = (props) => {
 
     let normalTime = moment(data.disponibilidad.end_time).format("kk:mm")
     
-
-
-    // let newEnd_time = data.disponibilidad.end_time * 1000;
-    // const finishTime = new Date(newEnd_time);
-
-    // const timestampObj = moment.unix(newEnd_time);
-    // const result = timestampObj.format("HH:mm:ss")
-
-    //console.log("result", result);
     let payload = {
       create_by: data.disponibilidad.create_by,
       name: data.disponibilidad.name,
-      //end_time: data.disponibilidad.end_time
       end_time: normalTime
     }
 
