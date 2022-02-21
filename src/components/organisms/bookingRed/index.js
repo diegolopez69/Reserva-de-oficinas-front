@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Grid from '@material-ui/core/Grid';
-import QRCode from "react-qr-code";
+
 import axios from "axios";
 import moment from "moment";
 import "./index.scss";
@@ -11,9 +11,6 @@ export const BookingRed = (props) => {
     name: "",
     end_time: ""
   })
-
-  const { dayLetter, month, day, year, hour, newHour} = Time()
-  // const { } = fetchData()
 
 
   async function fetchData() {      
@@ -51,8 +48,6 @@ export const BookingRed = (props) => {
   }, [])
 
   function Time() {
-    let now = moment().format("ddd, MMM D YYYY, h:mm"); // Fri, Feb 14 2010, 3:25"
-
     let dayLetter = moment().format("ddd");
     let month = moment().format("MMM");
     let day = moment().format("D");
@@ -60,17 +55,7 @@ export const BookingRed = (props) => {
     let hour = moment().format("kk");
     let minute = moment().format("mm");
     let newHour = moment().add(1, 'hour').format('kk')
-
-    // console.log(now);
-    // console.log(dayLetter);
-    // console.log(month);
-    // console.log(day);
-    // console.log(year);
-    // console.log(hour);
-    // console.log(minute);
-    // console.log(newHour);
     
-
     return {
       dayLetter: dayLetter,
       month: month,
@@ -110,9 +95,7 @@ export const BookingRed = (props) => {
               Motivo: {dataInformation.name} <br />
               Hora de finalización: {dataInformation.end_time}<br />
             </p>
-
             <br />
-            <QRCode value="http://172.27.65.240:1377/bookingMovil" />
           </div>
         </Grid>
       </Grid>
