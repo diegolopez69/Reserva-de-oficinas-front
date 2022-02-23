@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
 import { Select, FormControl, InputLabel, MenuItem, TextField } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-import moment from 'moment'
 import "./index.scss";
 
 export const BookingMovil = () => {
@@ -42,19 +41,15 @@ export const BookingMovil = () => {
   const [value, setValue] = useState("");
   const [valuee, setValuee] = useState("");
   const [textInput, setTextInput] = useState('');
-  const [response, setResponse] = useState('');
   const handleChange = e => setValue(e.target.value);
   const handleChangeOut = e => setValuee(e.target.value);
   const handleTextInputChange = event => {
     setTextInput(event.target.value);
   };
   const create_by = localStorage.getItem("name");
-  localStorage.setItem("response", response.status);
-  
-  
+
 
   const PostMethod = () => {
-    // POST request using fetch inside useEffect React hook
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -64,20 +59,26 @@ export const BookingMovil = () => {
 
     console.log(requestOptions.body);
     fetch('http://172.27.18.169:3000/links/aceptar_reserva', requestOptions)
-      .then(response => response.json())
-      .then(data => console.log("response", data.status), data => setValue(data.id), data => setResponse(data.status))
+    .then(response => {
+      console.log("response", response);
+    })  
+    .then(data => {
+        setValue(data.id)
+        console.log("data",data.status);
+        RouteChange(data.status)
+      })
       .catch(exception => console.error(exception));
 
-
     //.then(data => setValue(data.id)).catch(exception => console.error(exception));
-
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }
 
+
+
   const history = useHistory();
-  const RouteChange = () => {
-    history.push("/bookingFinished");
+  const RouteChange = (data) => {
+    history.push("/bookingFinished", { res: data });
   }
 
   //2022-01-25T12:00:00
@@ -85,7 +86,7 @@ export const BookingMovil = () => {
   function Time(time) {
     if (!time) return ""
 
-    //const dateMoment2 = moment().utc().format("YYYY-MM-DDTHH:mm")
+
 
     const tiempo = time.split(":")
     let today = new Date();
@@ -156,13 +157,10 @@ export const BookingMovil = () => {
     }
 
 
-    const dateMoment3 = moment().utc().format(`YYYY-MM-DDT${hour}:${minute}:mm`)
-    console.log("dateMoment3", dateMoment3);
-
     let FullDate = `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
-    console.log("FullDate", FullDate);
+
     return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
-    //return dateMoment3
+
   }
 
   //entrada < horas de finalización >= (entrada + 6) 
@@ -233,7 +231,6 @@ export const BookingMovil = () => {
 
         <div className="BtnToBooking">
           <Button className="BtnReservar" onClick={() => {
-            RouteChange()
             PostMethod();
           }}>Reservar</Button>
 
