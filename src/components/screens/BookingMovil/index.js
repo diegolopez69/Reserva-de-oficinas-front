@@ -50,28 +50,44 @@ export const BookingMovil = () => {
 
 
   const PostMethod = () => {
-    // POST request using fetch inside useEffect React hook
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       // body: JSON.stringify({ start_time: value, end_time: valuee, room_id:1, create_by:"admin", name:"Titulo 1", description:"ejemplo1@alumnos.uneatlantico.es" })
       body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: create_by, name: textInput, description: "ejemplo1@alumnos.uneatlantico.es" } })
     };
+
     console.log(requestOptions.body);
-    fetch('http://172.27.65.240:3000/links/aceptar_reserva', requestOptions)
-      .then(response => response.json())
-      .then(data => setValue(data.id)).catch(exception => console.error(exception));
+    fetch('http://172.27.18.169:3000/links/aceptar_reserva', requestOptions)
+    .then(response => {
+      console.log("response", response);
+    })  
+    .then(data => {
+        setValue(data.id)
+        console.log("data",data.status);
+        RouteChange(data.status)
+      })
+      .catch(exception => console.error(exception));
+
+    //.then(data => setValue(data.id)).catch(exception => console.error(exception));
+
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }
 
+
+
   const history = useHistory();
-  const RouteChange = () => {
-    history.push("/bookingFinished");
+  const RouteChange = (data) => {
+    history.push("/bookingFinished", { res: data });
   }
 
   //2022-01-25T12:00:00
+
   function Time(time) {
     if (!time) return ""
+
+
+
     const tiempo = time.split(":")
     let today = new Date();
     today.setHours(tiempo[0])
@@ -139,10 +155,14 @@ export const BookingMovil = () => {
     if (minute === 0) {
       minute = `00`
     }
+
+
     let FullDate = `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
-    console.log("FullDate", FullDate);
+
     return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
+
   }
+
   //entrada < horas de finalización >= (entrada + 6) 
   // hours.map((hour, index) => console.log("hour", index))
   const filterFinishHours = () => {
@@ -157,7 +177,8 @@ export const BookingMovil = () => {
       </div>
       <div className="GeneralFormOfBookingMovil">
         <div className="FormName">
-          <p className="TextOfNameOnForm">{localStorage.getItem("familyName")}</p>
+          <p className="TextOfNameOnForm">{localStorage.getItem("name")}</p>
+          {/* <p className="TextOfNameOnForm">{localStorage.getItem("response")}</p> */}
         </div>
         <div className="InsideForm">
           <form className="LabelForm">
@@ -210,7 +231,6 @@ export const BookingMovil = () => {
 
         <div className="BtnToBooking">
           <Button className="BtnReservar" onClick={() => {
-            RouteChange()
             PostMethod();
           }}>Reservar</Button>
 
