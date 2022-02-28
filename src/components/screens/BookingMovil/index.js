@@ -59,12 +59,10 @@ export const BookingMovil = () => {
 
     console.log(requestOptions.body);
     fetch('http://172.27.18.169:3000/links/aceptar_reserva', requestOptions)
-    .then(response => {
-      console.log("response", response);
-    })  
-    .then(data => {
+      .then(data => {
         setValue(data.id)
-        console.log("data",data.status);
+        console.log("data", data);
+        console.log("data.status", data.status);
         RouteChange(data.status)
       })
       .catch(exception => console.error(exception));
@@ -78,7 +76,8 @@ export const BookingMovil = () => {
 
   const history = useHistory();
   const RouteChange = (data) => {
-    history.push("/bookingFinished", { res: data });
+    history.push("/bookingFinished");
+    //history.push("/bookingFinished", { res: data });
   }
 
   //2022-01-25T12:00:00
@@ -198,7 +197,6 @@ export const BookingMovil = () => {
               value={textInput}
               onChange={handleTextInputChange}
             />
-            {/* <p>Texto: {textInput}</p> */}
           </form>
 
           <form className="LabelForm">
