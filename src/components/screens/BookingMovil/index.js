@@ -66,9 +66,6 @@ export const BookingMovil = () => {
         RouteChange(data.status)
       })
       .catch(exception => console.error(exception));
-
-    //.then(data => setValue(data.id)).catch(exception => console.error(exception));
-
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }
 
@@ -76,8 +73,8 @@ export const BookingMovil = () => {
 
   const history = useHistory();
   const RouteChange = (data) => {
-    history.push("/bookingFinished");
-    //history.push("/bookingFinished", { res: data });
+    //history.push("/bookingFinished");
+    history.push("/bookingFinished", { res: data });
   }
 
   //2022-01-25T12:00:00
