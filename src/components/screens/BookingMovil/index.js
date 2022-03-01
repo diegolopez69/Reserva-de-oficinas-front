@@ -69,20 +69,14 @@ export const BookingMovil = () => {
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }
 
-
-
   const history = useHistory();
   const RouteChange = (data) => {
-    //history.push("/bookingFinished");
     history.push("/bookingFinished", { res: data });
   }
 
   //2022-01-25T12:00:00
-
   function Time(time) {
     if (!time) return ""
-
-
 
     const tiempo = time.split(":")
     let today = new Date();
@@ -151,9 +145,6 @@ export const BookingMovil = () => {
     if (minute === 0) {
       minute = `00`
     }
-
-
-    let FullDate = `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
 
     return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
 
