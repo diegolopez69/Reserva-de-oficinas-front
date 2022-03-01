@@ -59,22 +59,15 @@ export const BookingMovil = () => {
 
     console.log(requestOptions.body);
     fetch('http://172.27.18.169:3000/links/aceptar_reserva', requestOptions)
-    .then(response => {
-      console.log("response", response);
-    })  
-    .then(data => {
+      .then(data => {
         setValue(data.id)
-        console.log("data",data.status);
+        console.log("data", data);
+        console.log("data.status", data.status);
         RouteChange(data.status)
       })
       .catch(exception => console.error(exception));
-
-    //.then(data => setValue(data.id)).catch(exception => console.error(exception));
-
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }
-
-
 
   const history = useHistory();
   const RouteChange = (data) => {
@@ -82,11 +75,8 @@ export const BookingMovil = () => {
   }
 
   //2022-01-25T12:00:00
-
   function Time(time) {
     if (!time) return ""
-
-
 
     const tiempo = time.split(":")
     let today = new Date();
@@ -156,9 +146,6 @@ export const BookingMovil = () => {
       minute = `00`
     }
 
-
-    let FullDate = `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
-
     return `${today.getFullYear()}-${month}-${date}T${hour}:${minute}:0${today.getSeconds()}`
 
   }
@@ -198,7 +185,6 @@ export const BookingMovil = () => {
               value={textInput}
               onChange={handleTextInputChange}
             />
-            {/* <p>Texto: {textInput}</p> */}
           </form>
 
           <form className="LabelForm">
