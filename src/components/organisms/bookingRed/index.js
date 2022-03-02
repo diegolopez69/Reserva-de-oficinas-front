@@ -13,7 +13,7 @@ export const BookingRed = (props) => {
   })
 
 
-  async function fetchData() {      
+  async function fetchData() {
     //console.log(`http://172.20.10.5:3000/links/who/1/${dayLetter}&${month}&${day}&${year}&${hour}:20/${dayLetter}&${month}&${day}&${year}&${newHour}:05`);
     const { data } = await axios.get(`http://172.27.18.169:3000/links/who/1`)
     Time()
@@ -22,12 +22,12 @@ export const BookingRed = (props) => {
     console.log(data.disponibilidad.name);
     console.log(data.disponibilidad.end_time);
 
-    let normalTime = moment(data.disponibilidad.end_time).format("kk:mm")
-    
+    let newEndTime = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date(data.disponibilidad.end_time * 1000))
+
     let payload = {
       create_by: data.disponibilidad.create_by,
       name: data.disponibilidad.name,
-      end_time: normalTime
+      end_time: newEndTime
     }
 
     setData(payload)
@@ -45,7 +45,7 @@ export const BookingRed = (props) => {
     let hour = moment().format("kk");
     let minute = moment().format("mm");
     let newHour = moment().add(1, 'hour').format('kk')
-    
+
     return {
       dayLetter: dayLetter,
       month: month,
