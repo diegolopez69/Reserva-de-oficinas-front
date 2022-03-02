@@ -1,5 +1,4 @@
 .GeneralFloorTwo {
-    
     .GeneralSecondPart {
         .GeneralStateOfTheRoomTwo {
             background-color: red;
@@ -18,17 +17,25 @@
             }
         }
         .GeneralBooking {
-            .TitleOfBooking{
+            .TitleOfBooking {
                 background-color: #939597;
                 padding-top: 2px;
                 padding-bottom: 2px;
+                padding-left: 5px;
                 text-align: left;
             }
-            .BookingPart{                
-                .TextOfBooking{
-                    font-size: 40px;
-                    margin-top: 20px;
-                }
+            .BaseText{
+                margin-bottom: 40px;
+                font-size: 30px;
+                margin-left: 15px;
+                margin-right: 15px;
+                margin-top: 15px;
+            }
+            .TextWithInformation {
+                font-size: 17px;
+                margin-bottom: -2px;
+                margin-left: 15px;
+                margin-right: 15px;
             }
         }
     }
