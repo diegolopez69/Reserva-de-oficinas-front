@@ -79,12 +79,16 @@ export const BookingRed = (props) => {
               Lo sentimos, en este momento la sala de reuniones esta siendo utilizada por {dataInformation.create_by}
               , vuelve a intentarlo en media hora.
             </p> */}
-            <p>Lo sentimos, en este momento la sala de reuniones esta siendo utilizada.</p>
-            <p>
-              Reservada por: {dataInformation.create_by}<br />
-              Motivo: {dataInformation.name} <br />
-              Hora de finalización: {dataInformation.end_time}<br />
-            </p>
+            <p className="BaseText">Lo sentimos, en este momento la sala de reuniones esta siendo utilizada.</p>
+            <p className="TextWithInformation"> Reservada por: <b>{dataInformation.create_by}</b> </p>
+
+
+            <p className="TextWithInformation"> Motivo: <b>{dataInformation.name}</b> </p>
+            <p className="TextWithInformation"> Hora de finalización: <b>{dataInformation.end_time}</b></p>
+
+
+
+
             <br />
           </div>
         </Grid>
