@@ -47,9 +47,8 @@ export const BookingMovil = () => {
     setTextInput(event.target.value);
   };
   const create_by = localStorage.getItem("name");
-
-
   const PostMethod = () => {
+    const { REACT_APP_API_URL } = process.env;
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -58,7 +57,7 @@ export const BookingMovil = () => {
     };
 
     console.log(requestOptions.body);
-    fetch('http://172.27.18.169:3000/links/aceptar_reserva', requestOptions)
+    fetch(`${REACT_APP_API_URL}/aceptar_reserva`, requestOptions)
       .then(data => {
         setValue(data.id)
         console.log("data", data);
