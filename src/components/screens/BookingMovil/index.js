@@ -47,9 +47,8 @@ export const BookingMovil = () => {
     setTextInput(event.target.value);
   };
   const create_by = localStorage.getItem("name");
-
-
   const PostMethod = () => {
+    const { REACT_APP_API_URL } = process.env;
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -57,8 +56,13 @@ export const BookingMovil = () => {
       body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: create_by, name: textInput, description: "ejemplo1@alumnos.uneatlantico.es" } })
     };
 
+<<<<<<< HEAD
     //console.log(requestOptions.body);
     fetch('http://172.27.18.169:3000/links/aceptar_reserva', requestOptions)
+=======
+    console.log(requestOptions.body);
+    fetch(`${REACT_APP_API_URL}/aceptar_reserva`, requestOptions)
+>>>>>>> feature/reservaMovil
       .then(data => {
         setValue(data.id)
         // console.log("data", data);
