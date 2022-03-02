@@ -57,12 +57,12 @@ export const BookingMovil = () => {
       body: JSON.stringify({ "reserva": { start_time: Time(hours[value]), end_time: Time(filterFinishHours()[valuee]), room_id: 1, create_by: create_by, name: textInput, description: "ejemplo1@alumnos.uneatlantico.es" } })
     };
 
-    console.log(requestOptions.body);
+    //console.log(requestOptions.body);
     fetch('http://172.27.18.169:3000/links/aceptar_reserva', requestOptions)
       .then(data => {
         setValue(data.id)
-        console.log("data", data);
-        console.log("data.status", data.status);
+        // console.log("data", data);
+        // console.log("data.status", data.status);
         RouteChange(data.status)
       })
       .catch(exception => console.error(exception));

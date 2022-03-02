@@ -17,13 +17,13 @@ export const BookingRed = (props) => {
     //console.log(`http://172.20.10.5:3000/links/who/1/${dayLetter}&${month}&${day}&${year}&${hour}:20/${dayLetter}&${month}&${day}&${year}&${newHour}:05`);
     const { data } = await axios.get(`http://172.27.18.169:3000/links/who/1`)
     Time()
-    console.log(data.disponibilidad);
-    console.log(data.disponibilidad.create_by);
-    console.log(data.disponibilidad.name);
-    console.log(data.disponibilidad.end_time);
+    // console.log(data.disponibilidad);
+    // console.log(data.disponibilidad.create_by);
+    // console.log(data.disponibilidad.name);
+    // console.log(data.disponibilidad.end_time);
 
-    let newEndTime = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date(data.disponibilidad.end_time * 1000))
-
+    let fixedHour = (data.disponibilidad.end_time * 1000) - 3599000
+    let newEndTime = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit' }).format(fixedHour)
     let payload = {
       create_by: data.disponibilidad.create_by,
       name: data.disponibilidad.name,
