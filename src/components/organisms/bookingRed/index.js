@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Grid from '@material-ui/core/Grid';
-
 import axios from "axios";
 import moment from "moment";
 import "./index.scss";
@@ -75,24 +74,14 @@ export const BookingRed = (props) => {
             <h3>Hoy</h3>
           </div>
           <div className='BookingPart'>
-            {/* <p>
-              Lo sentimos, en este momento la sala de reuniones esta siendo utilizada por {dataInformation.create_by}
-              , vuelve a intentarlo en media hora.
-            </p> */}
             <p className="BaseText">Lo sentimos, en este momento la sala de reuniones esta siendo utilizada.</p>
             <p className="TextWithInformation"> Reservada por: <b>{dataInformation.create_by}</b> </p>
             <p className="TextWithInformation"> Motivo: <b>{dataInformation.name}</b> </p>
             <p className="TextWithInformation"> Hora de finalización: <b>{dataInformation.end_time}</b></p>
-
-
-
-
             <br />
           </div>
         </Grid>
       </Grid>
-
-
     </div>
   );
 };  
