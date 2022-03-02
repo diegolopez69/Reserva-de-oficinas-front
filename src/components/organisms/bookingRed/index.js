@@ -22,8 +22,8 @@ export const BookingRed = (props) => {
     console.log(data.disponibilidad.name);
     console.log(data.disponibilidad.end_time);
 
-    let newEndTime = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date(data.disponibilidad.end_time * 1000))
-
+    let fixedHour = (data.disponibilidad.end_time * 1000) - 3599000
+    let newEndTime = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit' }).format(fixedHour)
     let payload = {
       create_by: data.disponibilidad.create_by,
       name: data.disponibilidad.name,
