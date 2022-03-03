@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reservas-frontend
+  namespace: reservas-aulas
+  labels:
+    app: reservas-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reservas-frontend
+  template:
+    metadata:
+      labels:
+        app: reservas-frontend
+    spec:
+      containers:
+      - name: reservas-frontend
+        image: reservas-frontend
+        env:
+        - name: REACT_APP_API_URL
+          value: "http://172.27.19.48:31108/links"
+        imagePullPolicy: Never
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reservas-frontend-service
+  namespace: reservas-aulas
+  labels:
+    app: reservas-frontend
+spec:
+  type: NodePort
+  selector:
+    app: reservas-frontend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 1377
+      nodePort: 30299
