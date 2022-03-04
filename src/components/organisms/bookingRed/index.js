@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Grid from '@material-ui/core/Grid';
-
 import axios from "axios";
 import moment from "moment";
 import "./index.scss";
 
 export const BookingRed = (props) => {
+  const { REACT_APP_API_URL } = process.env;
   const [dataInformation, setData] = useState({
     create_by: "",
     name: "",
     end_time: ""
   })
 
-
   async function fetchData() {
     //console.log(`http://172.20.10.5:3000/links/who/1/${dayLetter}&${month}&${day}&${year}&${hour}:20/${dayLetter}&${month}&${day}&${year}&${newHour}:05`);
-    const { data } = await axios.get(`http://172.27.18.169:3000/links/who/1`)
+    const { data } = await axios.get(`${REACT_APP_API_URL}/who/1`)
     Time()
-    console.log(data.disponibilidad);
-    console.log(data.disponibilidad.create_by);
-    console.log(data.disponibilidad.name);
-    console.log(data.disponibilidad.end_time);
+    // console.log(data.disponibilidad);
+    // console.log(data.disponibilidad.create_by);
+    // console.log(data.disponibilidad.name);
+    // console.log(data.disponibilidad.end_time);
 
     let fixedHour = (data.disponibilidad.end_time * 1000) - 3599000
     let newEndTime = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit' }).format(fixedHour)
@@ -57,8 +56,6 @@ export const BookingRed = (props) => {
     }
   }
 
-
-
   return (
     <div className='GeneralFloorTwo'>
       <Grid container className='GeneralSecondPart'>
@@ -75,24 +72,14 @@ export const BookingRed = (props) => {
             <h3>Hoy</h3>
           </div>
           <div className='BookingPart'>
-            {/* <p>
-              Lo sentimos, en este momento la sala de reuniones esta siendo utilizada por {dataInformation.create_by}
-              , vuelve a intentarlo en media hora.
-            </p> */}
             <p className="BaseText">Lo sentimos, en este momento la sala de reuniones esta siendo utilizada.</p>
             <p className="TextWithInformation"> Reservada por: <b>{dataInformation.create_by}</b> </p>
             <p className="TextWithInformation"> Motivo: <b>{dataInformation.name}</b> </p>
             <p className="TextWithInformation"> Hora de finalización: <b>{dataInformation.end_time}</b></p>
-
-
-
-
             <br />
           </div>
         </Grid>
       </Grid>
-
-
     </div>
   );
 };  
