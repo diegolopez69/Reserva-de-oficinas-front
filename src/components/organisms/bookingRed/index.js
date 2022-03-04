@@ -15,7 +15,7 @@ export const BookingRed = (props) => {
 
   async function fetchData() {
     //console.log(`http://172.20.10.5:3000/links/who/1/${dayLetter}&${month}&${day}&${year}&${hour}:20/${dayLetter}&${month}&${day}&${year}&${newHour}:05`);
-    const { data } = await axios.get(`${REACT_APP_API_URL}/who/1`)
+    const { data } = await axios.get(`http://172.27.18.169:3000/links/who/1`)
     Time()
     // console.log(data.disponibilidad);
     // console.log(data.disponibilidad.create_by);
