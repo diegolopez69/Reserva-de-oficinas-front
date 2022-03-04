@@ -66,7 +66,7 @@ export const BookingMovil = () => {
         }
 
         console.log(requestOptions.body)
-        fetch(`${REACT_APP_API_URL}/aceptar_reserva`, requestOptions)
+        fetch(`http://172.27.19.48:31108/links/aceptar_reserva`, requestOptions)
             .then(data => {
                 setValue(data.id)
                 // console.log("data", data);
