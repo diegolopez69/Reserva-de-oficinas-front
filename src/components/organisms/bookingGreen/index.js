@@ -23,7 +23,6 @@ export const BookingGreen = (props) => {
           <div className='BookingPart'> 
             <p className='TextOfBooking'>¡Reserva ahora mismo!</p>
             <br/> 
-            REACT_APP_FRONT
             <QRCode value= {`${process.env.REACT_APP_FRONT}/bookingMovil`}/> 
           </div>
         </Grid>
