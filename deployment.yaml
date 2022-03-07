@@ -21,6 +21,8 @@ spec:
         env:
         - name: REACT_APP_API_URL
           value: "http://172.27.19.48:31108/links"
+        - name: REACT_APP_FRONT
+          value: "http://172.27.19.48:30299"
         imagePullPolicy: Never
 
 ---
