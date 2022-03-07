@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Grid from '@material-ui/core/Grid';
-
 import axios from "axios";
 import moment from "moment";
 import "./index.scss";
 
 export const BookingRed = (props) => {
-  const { REACT_APP_API_URL } = process.env;
+  // const { REACT_APP_API_URL } = process.env;
   const [dataInformation, setData] = useState({
     create_by: "",
     name: "",
@@ -15,12 +14,12 @@ export const BookingRed = (props) => {
 
   async function fetchData() {
     //console.log(`http://172.20.10.5:3000/links/who/1/${dayLetter}&${month}&${day}&${year}&${hour}:20/${dayLetter}&${month}&${day}&${year}&${newHour}:05`);
-    const { data } = await axios.get(`${REACT_APP_API_URL}/who/1`)
+    const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/who/1`)
     Time()
-    console.log(data.disponibilidad);
-    console.log(data.disponibilidad.create_by);
-    console.log(data.disponibilidad.name);
-    console.log(data.disponibilidad.end_time);
+    // console.log(data.disponibilidad);
+    // console.log(data.disponibilidad.create_by);
+    // console.log(data.disponibilidad.name);
+    // console.log(data.disponibilidad.end_time);
 
     let fixedHour = (data.disponibilidad.end_time * 1000) - 3599000
     let newEndTime = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit' }).format(fixedHour)
