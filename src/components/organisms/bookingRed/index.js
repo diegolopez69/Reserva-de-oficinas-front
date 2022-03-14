@@ -19,9 +19,10 @@ export const BookingRed = (props) => {
     // console.log(data.disponibilidad);
     // console.log(data.disponibilidad.create_by);
     // console.log(data.disponibilidad.name);
-    // console.log(data.disponibilidad.end_time);
+    //console.log("end_time",data.disponibilidad.end_time);
+    //let fixedHour = (data.disponibilidad.end_time * 1000) - 3599000
 
-    let fixedHour = (data.disponibilidad.end_time * 1000) - 3599000
+    let fixedHour = (data.disponibilidad.end_time * 1000) - 7140000 //El 7140000 es restar 119 minutos, el formato son milisegundos.
     let newEndTime = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit' }).format(fixedHour)
     let payload = {
       create_by: data.disponibilidad.create_by,
